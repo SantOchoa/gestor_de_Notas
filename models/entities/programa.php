@@ -2,17 +2,13 @@
 namespace Models\Entities;
 
 require __DIR__."../database/gestor_notasdb.php";
-require __DIR__."/programa.php";
 
-use Models\Entities\Programa;
 use Model\DataBase\GestorNotasDB;
 
 
-class Student{
+class Programa{
     private $cod;
     private $name;
-    private $email;
-    private Programa $program;
 
     public function set($prop, $val)
     {

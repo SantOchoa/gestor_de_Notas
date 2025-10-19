@@ -7,12 +7,10 @@ require __DIR__."/programa.php";
 use Models\Entities\Programa;
 use Model\DataBase\GestorNotasDB;
 
-
-class Student{
+class Materia{
     private $cod;
     private $name;
-    private $email;
-    private Programa $program;
+    private Programa $programa;
 
     public function set($prop, $val)
     {
@@ -22,8 +20,7 @@ class Student{
     {
         return $this->{$prop};
     }
+
+
 }
-
-
-
 ?>
