@@ -108,6 +108,26 @@ CREATE TABLE `programas` (
 INSERT INTO `programas` (`codigo`, `nombre`) VALUES
 ('1111', 'Ing. Sistemas'),
 ('2222', 'Ing. Multimedia');
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user` varchar(30) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`user`, `password`) VALUES
+('Jhoan', 'elmejorprofesor');
+
 
 --
 -- Índices para tablas volcadas

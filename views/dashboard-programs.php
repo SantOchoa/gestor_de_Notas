@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/dashboards.css">
     <link rel="icon" href="../public/images/logo-gestor-white.png">
     <title>NotasApp-Programas</title>
 </head>
 <body>
     <header>
-        <div>
-            <div>
+        <div class="container-log-notas">
+            <div class="logo-notas">
                 <img src="../public/images/logo-gestor-white.png" alt="">
             </div>
             <h1>NotasApp</h1>
         </div>
-        <div>
-            <div>
+        <div class="container-user-accions">
+            <div class="container-user-info">
                 <img src="../public/images/user-log.png" alt="user">
                 <!-- Debe Mostrar el nombre del usuario-->
                 <p>Usuario</p>
             </div>
-            <div>
+            <div class="container-log-out">
                 <img src="../public/images/log-out-red.png" alt="log-out-red" class="log-out-normal">
                 <img src="../public/images/log-out-white.png" alt="log-out-white" class="log-out-hover">
                 <p>Cerrar Sesión</p>
