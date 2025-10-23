@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/login.css">
-    <title>Document</title>
+    <link rel="icon" href="../public/images/logo-gestor-white.png">
+    <title>NotasApp</title>
 </head>
 <body>
     <div class="full-login">
         <div class="container-loging">
             <div class="container-logo">
                 <div class="logo-gest">
-                    <img src="../public/images/logo-gestor.png" alt="logo-gestor">
+                    <img src="../public/images/logo-gestor-white.png" alt="logo-gestor">
                 </div>
                 <h1>NotasApp</h1>
                 <p>Sistema de Gestión de Notas</p>
             </div>
-            <form action="">
+            <!-- Hacer el login y enviar a dashboard-programs -->
+            <form action="dashboard-materias.php">
                 <div class="space">
                     <label for="username">Usuario</label>
                     <input type="text" id="username" placeholder="Ingrese su usuario">
