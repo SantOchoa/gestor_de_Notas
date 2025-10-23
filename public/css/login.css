@@ -1,0 +1,114 @@
+*{
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+body{
+    background-color: rgb(158, 35, 35);
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin: 0;
+}
+.full-login{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    height: 100vh;
+}
+.container-loging{
+    padding: 32px;
+    border-radius: 1rem;
+    background-color: white;
+}
+.container-logo{
+    text-align: center;
+    margin-block-end: 32px;
+}
+.logo-gest{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background-color:  rgb(145, 15, 13);
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 16px;
+    overflow: hidden; 
+
+}
+.logo-gest img{
+    display: block;
+    width: 60%; 
+    height: auto;
+    object-fit: contain;
+}
+.container-logo h1,p{
+    margin-block: 0%;
+    font-size: 16px;
+}
+.container-logo h1{
+    font-weight: normal;
+    margin-block-end: 8px;
+    color: rgb(51, 51, 51);
+}
+.container-logo p{
+    color: rgb(107, 114, 130);
+}
+.space{
+    display:grid;
+    margin-bottom: 24px;
+}
+.space label{
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+.space input{
+    padding-block: 4px;
+    padding-inline: 12px;
+    background-color: rgb(242, 242, 245);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(208, 212, 219);
+    border-radius: .625rem;
+    width: 358px;
+    height: 26px;
+}
+.button-log{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 8px;
+    padding-inline: 16px;
+    background-color:rgb(145, 15, 13);
+    border-radius: .625rem;
+    border: 0;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    width: 384px;
+    height: 44px;
+    margin-bottom: 24px;
+}
+.center-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(140, 0, 0);
+}
+.center-text p{
+    font-size: 14px;
+}
+.out{
+    margin-top: 24px ;
+
+    color: rgb(255, 255, 255);
+}
+
+.not-forget:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.button-log:hover{
+    background-color: rgb(116, 0, 0);
+}
