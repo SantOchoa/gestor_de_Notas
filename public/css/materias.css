@@ -1,0 +1,13 @@
+.materias{
+    background-color: rgb(158, 35, 35);
+}
+.materias svg{
+    fill: white;
+}
+.materias p{
+    color: white;
+    margin: 0;
+}
+.materias:hover{
+    background-color: rgb(158, 35, 35);
+}

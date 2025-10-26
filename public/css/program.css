@@ -1,0 +1,13 @@
+.program{
+    background-color: rgb(158, 35, 35);
+}
+.program svg{
+    fill: white;
+}
+.program p{
+    color: white;
+    margin: 0;
+}
+.program:hover{
+    background-color: rgb(158, 35, 35);
+}

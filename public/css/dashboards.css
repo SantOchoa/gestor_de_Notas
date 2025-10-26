@@ -9,13 +9,15 @@ header{
     align-items: center;
     justify-content: space-between;
     padding-inline: 24px;
+    padding-block: 6px;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position:sticky;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
+    overflow: hidden; 
 }
 .container-log-notas{
     display: flex;
@@ -54,6 +56,7 @@ header{
     background-color: rgb(247, 247, 250);
     padding-inline: 12px;
     padding-block: 8px;
+    margin-right: 16px;
 }
 .container-user-info img{
     width: 20px;
@@ -65,4 +68,130 @@ header{
     font-size: 14px;
     color: #333333;
 }
+.container-log-out{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid rgb(158, 35, 35);
+    border-radius: .625rem;
+    padding-block: 8px;
+    padding-inline: 12px;
+    cursor: pointer;
+    position: relative;
+    color: rgb(158, 35, 35);
+    transition: all 0.3s ease;
+}
+
+.container-log-out svg{
+    height: 16px;
+    width: 16px;
+    fill: rgb(158, 35, 35);
+    margin-right: 8px;
+}
+.container-log-out p{
+    margin: 0;
+}
+.container-log-out:hover {
+    color: white;
+    background-color: rgb(158, 35, 35);
+}
+.container-log-out:hover svg {
+    fill: white;
+}
+.nav-info{
+    display: grid;
+    grid-template-columns: 255px 1fr; 
+    height: 100vh;
+}
+.nav-links{
+    position: sticky;
+    width: 255px;
+    box-shadow: 2px 0 4px rgb(228, 230, 235);
+    z-index: 999;
+}
+nav{
+    position: fixed;
+    top: 64px; 
+    left: 0;
+    padding: 16px;
+    height: calc(100vh - 64px);
+    background-color: white;
+    overflow: hidden; 
+}
+nav a{
+    text-decoration: none;
+}
+.button{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-radius: .625rem;
+    font-size: 14px;
+    padding-inline: 16px;
+    padding-block: 12px;
+    margin-bottom: 8px;
+}
+.button img , .button svg{
+    height: 20px;
+    width: 20px;
+    fill: rgb(158, 35, 35);
+    margin-right: 12px;
+}
+.button p{
+    font-size: 14px;
+    color: #333333;
+    margin: 0;
+}
+.button:hover{
+    background-color: rgb(247, 247, 250);
+}
+
+.banner-info{
+    margin-top: 65.781px;
+    background-color: rgb(247, 247, 250);
+    padding-inline: 32px;
+}
+.name-create{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    margin-bottom: 24px;
+}
+.name-create h2{
+    margin: 0;
+    color: #333333;
+    font-size: 16px;
+    font-weight: normal;
+}
+.name-create button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(158, 35, 35);
+    border-width: 0;
+    border-radius: .625rem;
+    padding-block: 8px;
+    padding-inline: 12px;
+    cursor: pointer;
+    position: relative;
+    color: rgb(255, 255, 255);
+    transition: all 0.3s ease;
+}
+.name-create button svg{
+    height: 16px;
+    width: 16px; 
+    margin-right: 8px;
+    stroke-width: 20;
+}
+.name-create button p{
+    margin: 0;
+}
+.name-create button:hover{
+    background-color: rgb(126, 29, 29);
+}
+
+
+
 
