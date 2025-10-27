@@ -12,8 +12,12 @@ class Studentsql extends Modelsql{
     public static function insertInto(){
         return "insert into estudiantes (codigo,nombre,email,programa)values(?,?,?,?)";
     }
+    public static function selectByUserCod()
+    {
+        return "select * from estudiantes where nombre=? and codigo=?";
+    }
     public static function update(){
-        return "update estudiantes set nombre=?, email=?,programa=? where codigo=?";
+        return "update estudiantes set nombre=?, email=?, programa=? where codigo=?";
     }
     public static function delete(){
         return "delete form estudiantes where codigo=?";

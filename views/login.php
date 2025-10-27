@@ -18,14 +18,14 @@
                 <p>Sistema de Gestión de Notas</p>
             </div>
             <!-- Hacer el login y enviar a dashboard-programs -->
-            <form action="dashboard-materias.php">
+            <form action="operations\start-session.php" methos="post" class="form-login">
                 <div class="space">
-                    <label for="username">Usuario</label>
-                    <input type="text" id="username" placeholder="Ingrese su usuario">
+                    <label for="userName">Usuario</label>
+                    <input type="text" name="userName" id="userName" placeholder="Ingrese su usuario">
                 </div>
                 <div class="space">
-                    <label for="password">Contraseña</label>
-                    <input type="password" id="password" placeholder="Ingrese su contraseña">
+                    <label for="userCode">Contraseña</label>
+                    <input type="password" name="userCode" id="userCode" placeholder="Ingrese su contraseña">
                 </div>
                 <button class="button-log" type="submit">Ingresar</button>
             </form>
