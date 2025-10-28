@@ -1,0 +1,11 @@
+.notas{
+    background-color: rgb(158, 35, 35);
+}
+
+.notas p{
+    color: white;
+    margin: 0;
+}
+.notas:hover{
+    background-color: rgb(158, 35, 35);
+}

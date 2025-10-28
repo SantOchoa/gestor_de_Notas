@@ -1,0 +1,13 @@
+.statistics{
+    background-color: rgb(158, 35, 35);
+}
+.statistics svg{
+    fill: white;
+}
+.statistics p{
+    color: white;
+    margin: 0;
+}
+.statistics:hover{
+    background-color: rgb(158, 35, 35);
+}

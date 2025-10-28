@@ -1,0 +1,13 @@
+.student{
+    background-color: rgb(158, 35, 35);
+}
+.student svg{
+    fill: white;
+}
+.student p{
+    color: white;
+    margin: 0;
+}
+.student:hover{
+    background-color: rgb(158, 35, 35);
+}
