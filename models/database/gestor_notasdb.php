@@ -3,7 +3,6 @@ namespace Model\DataBase;
 
 use mysqli;
 
-
 class GestorNotasDB{
     private $hostDb = "localhost";
     private $nameDb = "gestor_notas";
@@ -33,7 +32,6 @@ class GestorNotasDB{
 
     public function execSQL($sql, ...$bindParam)
     {
-        //return $this->conexDb->query($sql);
         $prp = $this->conexDb->prepare($sql);
         if (!empty($bindParam)) {
             $prp->bind_param(...$bindParam);
