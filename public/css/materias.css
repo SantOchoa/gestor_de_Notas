@@ -11,3 +11,35 @@
 .materias:hover{
     background-color: rgb(158, 35, 35);
 }
+.filter{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 16px;
+    margin-bottom: 24px;
+    background-color: white;
+    border-radius: .625rem;
+    box-shadow: 0 2px 4px #e5e7eb;
+    gap: calc(.25rem *2);
+}
+.filter svg{
+    fill: rgb(158, 35, 35);
+    height: 25px;
+    width: 25px;
+}
+.filter h2{
+    font-size: 14px;
+    font-weight: 500;
+}
+.filter select{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 8px;
+    padding-inline: 12px;
+    border-width: 1px;
+    border-color: #e4e4e7;
+    border-radius: .625rem;
+    background-color: #f3f3f5;
+    width: 230px;
+}
