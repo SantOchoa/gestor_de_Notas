@@ -68,8 +68,17 @@
                 <h2>Materias</h2>
                 <button>
                     <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M450-450H200v-60h250v-250h60v250h250v60H510v250h-60v-250Z"/></svg>
-                    <p>Nuevo Materia</p>
+                    <p>Nueva Materia</p>
                 </button>
+            </div>
+            <div class="filter">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M440-160q-17 0-28.5-11.5T400-200v-240L168-736q-15-20-4.5-42t36.5-22h560q26 0 36.5 22t-4.5 42L560-440v240q0 17-11.5 28.5T520-160h-80Zm40-308 198-252H282l198 252Zm0 0Z"/></svg>
+                <h2>Filtar por Programa:</h2>
+                <select name="program-select" id="program-select">
+                    <option value="all">Todos los programas</option>
+                    <!--Aqui se debe poner el for para todos los programas existententes-->
+                    
+                </select>
             </div>
 
         </div>
