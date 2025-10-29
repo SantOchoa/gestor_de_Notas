@@ -1,13 +1,14 @@
 <?php
+
 namespace Models\Utils;
 
-require __DIR__."/modelsql.php";
 
-use Models\Utils\Modelsql;
-
-class Programasql extends Modelsql{
+class Programasql{
     public static function selectAll(){
         return "select * from programas";
+    }
+    public static function selectByCode(){
+        return "select * from programas where codigo=?";
     }
     public static function insertInto(){
         return "insert into programas (codigo,nombre)values(?,?)";

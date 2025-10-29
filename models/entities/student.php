@@ -1,8 +1,9 @@
 <?php
 namespace Models\Entities;
 
-require __DIR__."/../database/gestor_notasdb.php";
+
 require __DIR__."/../utils/studentsql.php";
+require __DIR__."/../database/gestor_notasdb.php";
 require __DIR__."/programa.php";
 
 use Models\Entities\Programa;
@@ -14,7 +15,7 @@ class Student{
     private $codigo;
     private $nombre;
     private $email;
-    private Programa $programa;
+    private $programaCode;
     
 
     public function set($prop, $val)
@@ -27,9 +28,9 @@ class Student{
     }
     public function getP()
     {
-        $codigoP = $this->programa->get('codigo');
-        $nombreP = $this->programa->get('nombre');
-        return ;
+        $programa = new Programa();
+        $nombreP = $programa->getByCode($this->programaCode);
+        return $nombreP;
     }
     public function all()
     {
@@ -44,10 +45,7 @@ class Student{
                 $student->set('codigo', $item['codigo']);
                 $student->set('nombre', $item['nombre']);
                 $student->set('email', $item['email']);
-                $program = new Programa();
-                $program->set('codigo', $item['codigo']);
-                $program->set('name', $item['nombre']);
-                $student->set('programa', $program);
+                $student->set('programa', $item['programa']);
                 array_push($rows, $student);
             }
         }
@@ -64,7 +62,7 @@ class Student{
             $this->codigo, 
             $this->nombre, 
             $this->email, 
-            $this->programa->get('codigo')
+            $this->programaCode 
         );
         return $result;
     }
@@ -79,7 +77,7 @@ class Student{
             $this->codigo,
             $this->nombre,
             $this->email,
-            $this->programa->get('codigo')
+            $this->programaCode
         );
         return $result;
     }

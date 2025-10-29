@@ -5,7 +5,7 @@ require __DIR__."/modelsql.php";
 
 use Models\Utils\Modelsql;
 
-class Studentsql extends Modelsql{
+class Studentsql{
     public static function selectAll(){
         return "select * from estudiantes";
     }
