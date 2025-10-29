@@ -18,7 +18,7 @@
                 <p>Sistema de Gestión de Notas</p>
             </div>
             <!-- Hacer el login y enviar a dashboard-programs -->
-            <form xclass="form-login" name="startSession">
+            <form class="form-login" name="startSession">
                 <div class="space">
                     <label for="userName">Usuario</label>
                     <input type="text" name="userName" id="userName" placeholder="Ingrese su usuario">
