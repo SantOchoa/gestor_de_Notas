@@ -20,9 +20,6 @@ class UsersController
         $user->set('password', $request['pwd']);
         $userValidate = $user->find();
         if (!empty($userValidate)) {
-            // session_start();
-            // $_SESSION['user'] = $user->get('id');
-            // $_SESSION['username'] = $user->get('userName');
             $sessionController = new SessionController();
             $sessionController->create($userValidate);
         }

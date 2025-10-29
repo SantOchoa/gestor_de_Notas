@@ -19,7 +19,7 @@ if(!empty($user)){
     <title>Iniciar sesión</title>
 </head>
 <body>
-    <h1>Sesión invalida <?php $student ?></h1>
+    <h1>Sesión invalida <?php $user ?></h1>
     <br>
     <a href="../login.php">Volver a inicio</a>
 </body>

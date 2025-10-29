@@ -1,8 +1,8 @@
 const form = document.forms['vacioForm'];
 const forms = document.forms['startSession'];
 const modal = document.getElementById('vacio');
-const userNameInput = document.getElementById('userName');
-const userCodeInput = document.getElementById('userCode');
+const userNameInput = document.getElementById('user');
+const userCodeInput = document.getElementById('pwd');
 
 forms.addEventListener('submit',function(event){
     event.preventDefault();
