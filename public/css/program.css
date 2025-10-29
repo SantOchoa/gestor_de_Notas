@@ -11,3 +11,89 @@
 .program:hover{
     background-color: rgb(158, 35, 35);
 }
+
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.modal-content label {
+    display: block;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-buttons button {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#cancelarModal {
+    background-color: #e0e0e0;
+}
+
+#crearPrograma {
+    background-color: rgb(158, 35, 35);
+    color: white;
+}
+
+#crearPrograma:hover {
+    background-color: rgb(133, 30, 30);
+}
+
+.close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
