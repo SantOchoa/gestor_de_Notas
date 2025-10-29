@@ -3,7 +3,7 @@ namespace Models\Entities;
 
 
 require __DIR__."/../utils/notasql.php";
-require __DIR__."/student.php";
+require_once __DIR__."/student.php";
 require __DIR__."/materia.php";
 
 use Models\Utils\NotaSQL;
@@ -31,6 +31,7 @@ class Nota{
         $nombreS = $student->getByCode($this->studentCode);
         return $nombreS;
     }
+    
     public function getM()
     {
         $materia = new Materia();
@@ -67,6 +68,20 @@ class Nota{
             $this->studentCode,
             $this->actividad,
             $this->nota
+        );
+        return $result;
+    }
+
+    public function update()
+    {
+        $sql = NotaSQL::update();
+        $db = new GestorNotasDB();
+        $result = $db->execSQL(
+            $sql,
+            "iis",
+            $this->nota,
+            $this->studentCode,
+            $this->actividad
         );
         return $result;
     }

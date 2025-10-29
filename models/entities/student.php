@@ -2,7 +2,7 @@
 namespace Models\Entities;
 
 require_once __DIR__."/../entities/programa.php";
-require __DIR__."/../utils/studentsql.php";
+require_once __DIR__."/../utils/studentsql.php";
 
 use Models\Entities\Programa;
 use Models\Utils\Studentsql;
@@ -116,6 +116,31 @@ class Student{
         }
         
         return $nombreP;
+    }
+    public function getByName($name)
+    {
+        $sql = Studentsql::selectByName();
+        $db = new GestorNotasDB();
+        $db->setIsSqlSelect(true);
+        $result = $db->execSQL(
+            $sql,
+            "s",
+            $name
+        );
+        $student = null;
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $student = new Student();
+                $student->set('codigo', $row['codigo']);
+                $student->set('nombre', $row['nombre']);
+                $student->set('email', $row['email']);
+                $student->set('programaCode', $row['programa']);
+                $codS = $student->get('codigo');
+                break;
+            }
+        }
+        
+        return $codS;
     }
 }
 ?>

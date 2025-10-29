@@ -14,6 +14,10 @@ class Studentsql{
     {
         return "select * from estudiantes where codigo=?";
     }
+    public static function selectByName()
+    {
+        return "select * from estudiantes where nombre=?";
+    }
     public static function update(){
         return "update estudiantes set nombre=?, email=?, programa=? where codigo=?";
     }

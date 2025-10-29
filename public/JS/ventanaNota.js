@@ -27,8 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalEditar = document.getElementById("modal-editar");
     const cerrarEditarBtn = document.getElementById("cerrarEditar");
     const cancelarEditarBtn = document.getElementById("cancelarEditar");
-    const inputEditar = document.getElementById("nombreNota");
-    const inputCodigoEditar = document.getElementById("codigoNota");
+    const inputEditar = document.getElementById("nota");
+    const inputCodigoEditar = document.getElementById("estudianteC");
+    const inputActividadEditar = document.getElementById("actividadM");
 
 
     const editarBtns = document.querySelectorAll(".btn.edit");
@@ -39,8 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.addEventListener("click", (e) => {
 
         const fila = e.target.closest("tr");
-        const nombreActual = fila.children[1].innerText;
+        const nombreActual = fila.children[3].innerText;
         const codigoActual = fila.children[0].innerText;
+        const actividadActual = fila.children[2].innerText;
+        inputActividadEditar.value = actividadActual;
         inputCodigoEditar.value = codigoActual;
         inputEditar.value = nombreActual;
         modalEditar.style.display = "block";

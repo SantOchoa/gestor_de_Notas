@@ -12,7 +12,7 @@ class Notasql {
         return "insert into notas (materia,estudiante,actividad,nota)values(?,?,?,?)";
     }
     public static function update(){
-        return "update notas set nota=? where estudiante=?";
+        return "update notas set nota=? where estudiante=? and actividad=?";
     }
     public static function delete(){
         return "delete from notas where nota=?";

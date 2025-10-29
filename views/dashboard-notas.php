@@ -153,9 +153,10 @@ $notas = $notaController->getAllNotas();
             <span class="close" id="cerrarEditar">&times;</span>
             <h2>Editar nota</h2>
             <form id="form-editar" action="operations/modificar-nota.php" method="post">
-                <label for="actividad">Nombre de la nota</label>
-                <input type="text" id="actividad" name="actividad" required>
-                <input type="number" id="materia" name="materia" placeholder="Ingrese la materia de la nota" required>
+                <label for="nota">Nota</label>
+                <input type="hidden" id="estudianteC" name="estudianteC" required>
+                <input type="hidden" id="actividadM" name="actividadM" required>
+                <input type="number" id="nota" name="nota" placeholder="Ingrese la Nota " required>
                 <div class="modal-buttons">
                     <button type="button" id="cancelarEditar">Cancelar</button>
                     <button type="submit" id="nota">Actualizar</button>
