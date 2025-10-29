@@ -21,14 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.target === modalEditar) modalEditar.style.display = "none";
     });
 
-    formCrear.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const nombre = document.getElementById("nombrePrograma").value.trim();
-        if (nombre === "") return alert("Por favor ingrese un nombre válido.");
-        alert(`Programa "${nombre}" creado exitosamente.`);
-        formCrear.reset();
-        modalCrear.style.display = "none";
-    });
+    
 
 
  
@@ -37,21 +30,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const cancelarEditarBtn = document.getElementById("cancelarEditar");
     const formEditar = document.getElementById("form-editar");
     const inputEditar = document.getElementById("editarNombre");
+    const inputCodigoEditar = document.getElementById("codigoE");
 
 
     const editarBtns = document.querySelectorAll(".btn.edit");
 
+
+
     editarBtns.forEach((btn) => {
-        btn.addEventListener("click", (e) => {
+      btn.addEventListener("click", (e) => {
 
-            const fila = e.target.closest("tr");
-            const nombreActual = fila.children[1].innerText;
-            inputEditar.value = nombreActual;
-            modalEditar.style.display = "block";
-
- 
-            formEditar.dataset.filaSeleccionada = fila.rowIndex;
-        });
+        const fila = e.target.closest("tr");
+        const nombreActual = fila.children[1].innerText;
+        const codigoActual = fila.children[0].innerText;
+        inputCodigoEditar.value = codigoActual;
+        inputEditar.value = nombreActual;
+        modalEditar.style.display = "block";
+      
+      });
     });
 
 
@@ -59,21 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.addEventListener("click", () => modalEditar.style.display = "none");
     });
 
-    formEditar.addEventListener("submit", (e) => {
-        e.preventDefault();
 
-        const nuevoNombre = inputEditar.value.trim();
-        if (nuevoNombre === "") return alert("Por favor ingrese un nombre válido.");
+    
 
-        const index = formEditar.dataset.filaSeleccionada;
-        const tabla = document.querySelector("table tbody");
-        const fila = tabla.rows[index - 1]; 
-
-        fila.children[1].innerText = nuevoNombre;
-
-        alert(`Programa actualizado a "${nuevoNombre}".`);
-        modalEditar.style.display = "none";
-    });
+  
 
 let codigoSeleccionado = null;
 

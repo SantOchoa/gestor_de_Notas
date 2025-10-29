@@ -1,9 +1,7 @@
 <?php
 namespace Models\Utils;
 
-require __DIR__."/modelsql.php";
 
-use Models\Utils\Modelsql;
 
 class Studentsql{
     public static function selectAll(){
@@ -12,9 +10,9 @@ class Studentsql{
     public static function insertInto(){
         return "insert into estudiantes (codigo,nombre,email,programa)values(?,?,?,?)";
     }
-    public static function selectByUserCod()
+    public static function selectByCode()
     {
-        return "select * from estudiantes where nombre=? and codigo=?";
+        return "select * from estudiantes where codigo=?";
     }
     public static function update(){
         return "update estudiantes set nombre=?, email=?, programa=? where codigo=?";

@@ -2,9 +2,6 @@
 
 namespace Models\Utils;
 
-require __DIR__."/modelsql.php";
-
-use Models\Utils\Modelsql;
 
 //Falta la verdadera primary Key para update y delete
 class Notasql {

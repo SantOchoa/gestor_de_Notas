@@ -1,3 +1,18 @@
+<?php
+require __DIR__."/../controllers/program-controller.php";
+
+use Controllers\ProgramController;
+use Models\Entities\Programa;
+
+$programController = new ProgramController();
+$programs=$programController->getPrograms();
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -80,16 +95,23 @@
                     <th class="accions">Acciones</th>
                 </thead>
                 <tbody>
-
-                <?php
-                echo '<tr><td>EST001</td><td>Juan Pérez</td>
-                <td class="actions"><button class="btn edit">
-                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M180-180h44l472-471-44-44-472 471v44Zm-60 60v-128l575-574q8-8 19-12.5t23-4.5q11 0 22 4.5t20 12.5l44 44q9 9 13 20t4 22q0 11-4.5 22.5T823-694L248-120H120Zm659-617-41-41 41 41Zm-105 64-22-22 44 44-22-22Z"/></svg>
-                </button>
-                <button class="btn delete">
-                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M261-120q-24.75 0-42.37-17.63Q201-155.25 201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"/></svg>
-                </button></td></tr>';
-                ?>
+                    <?php
+                    foreach ($programs as $program) {
+                        echo '<tr>';
+                        echo '  <td>' . $program->get('codigo') . '</td>';
+                        echo '  <td>' . $program->get('nombre') . '</td>';
+                        echo '<td class="actions"><button class="btn edit">';
+                        echo '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M180-180h44l472-471-44-44-472 471v44Zm-60 60v-128l575-574q8-8 19-12.5t23-4.5q11 0 22 4.5t20 12.5l44 44q9 9 13 20t4 22q0 11-4.5 22.5T823-694L248-120H120Zm659-617-41-41 41 41Zm-105 64-22-22 44 44-22-22Z"/></svg>';
+                        echo '</button>';
+                        echo '<button class="btn delete">';
+                        echo '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M261-120q-24.75 0-42.37-17.63Q201-155.25 201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"/></svg>';
+                        echo '</button></td></tr>';
+                        echo '</tr>';
+                    }
+                    if (count($programs) == 0) {
+                        echo '<div>No hay programas registrados</div>';
+                    }
+                    ?>
                 </tbody>
                 
             </table>
@@ -100,9 +122,11 @@
     <div class="modal-content">
         <span class="close" id="cerrarModal">&times;</span>
         <h2>Nuevo Programa</h2>
-        <form id="form-programa">
+        <form id="form-programa" action="operations/crear-programa.php" method="POST">
             <label for="nombrePrograma">Nombre del Programa</label>
             <input type="text" id="nombrePrograma" name="nombrePrograma" placeholder="Ingrese el nombre del programa" required>
+            <label for="codigo">Código del Programa</label>
+            <input type="number" id="codigo" name="codigo" placeholder="Ingrese el código del programa" required>
             <div class="modal-buttons">
                 <button type="button" id="cancelarModal">Cancelar</button>
                 <button type="submit" id="crearPrograma">Crear</button>
@@ -115,9 +139,10 @@
     <div class="modal-content">
         <span class="close" id="cerrarEditar">&times;</span>
         <h2>Editar Programa</h2>
-        <form id="form-editar">
+        <form id="form-editar" action="operations/modificar-programa.php" method="post">
             <label for="editarNombre">Nombre del Programa</label>
             <input type="text" id="editarNombre" name="editarNombre" required>
+            <input type="number" id="codigoE" name="codigoE" placeholder="Ingrese el código del programa" required>
             <div class="modal-buttons">
                 <button type="button" id="cancelarEditar">Cancelar</button>
                 <button type="submit" id="actualizarPrograma">Actualizar</button>
