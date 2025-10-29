@@ -127,10 +127,19 @@ $notas = $notaController->getAllNotas();
             <span class="close" id="cerrarModal">&times;</span>
             <h2>Nueva Nota</h2>
             <form id="form-nota" action="operations/crear-nota.php" method="POST">
-                <label for="nombreNota">Nombre de la Nota</label>
-                <input type="text" id="nombreNota" name="nombreNota" placeholder="Ingrese el nombre de la nota" required>
-                <label for="codigo">Código de la nota</label>
-                <input type="number" id="codigo" name="codigoNota" placeholder="Ingrese el código de la nota" required>
+
+                <label for="materia">Codigo de la Materia</label>
+                <input type="number" id="materia" name="materia" placeholder="Ingrese el Codigo de la Materia" required>
+
+                <label for="estudiante">Codigo del Estudiante</label>
+                <input type="number" id="estudiante" name="estudiante" placeholder="Ingrese el codigo del Estudiante" required>
+
+                <label for="actividad">Nombre de la Actividad</label>
+                <input type="text" id="actividad" name="actividad" placeholder="Ingrese el Nombre de la Actividad" required>
+
+                <label for="nota">Nota</label>
+                <input type="number" id="nota" name="nota" placeholder="Ingrese la Nota" required>
+
                 <div class="modal-buttons">
                     <button type="button" id="cancelarModal">Cancelar</button>
                     <button type="submit" id="nota">Crear</button>
@@ -144,9 +153,9 @@ $notas = $notaController->getAllNotas();
             <span class="close" id="cerrarEditar">&times;</span>
             <h2>Editar nota</h2>
             <form id="form-editar" action="operations/modificar-nota.php" method="post">
-                <label for="nombreNota">Nombre de la nota</label>
-                <input type="text" id="nombreNota" name="nombreNota" required>
-                <input type="number" id="codigoNota" name="codigoNota" placeholder="Ingrese el código de la nota" required>
+                <label for="actividad">Nombre de la nota</label>
+                <input type="text" id="actividad" name="actividad" required>
+                <input type="number" id="materia" name="materia" placeholder="Ingrese la materia de la nota" required>
                 <div class="modal-buttons">
                     <button type="button" id="cancelarEditar">Cancelar</button>
                     <button type="submit" id="nota">Actualizar</button>
