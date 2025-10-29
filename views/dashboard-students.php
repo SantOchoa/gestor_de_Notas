@@ -1,3 +1,15 @@
+<?php
+require __DIR__ . "/../controllers/student-controller.php";
+
+use Controllers\SessionController;
+use Controllers\StudentController;
+
+$sessionController = new SessionController();
+$sessionController->validar("login.php");
+
+$studentController = new StudentController();
+$students = $studentController->getStudent();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,10 +34,12 @@
                 <!-- Debe Mostrar el nombre del usuario-->
                 <p>Usuario</p>
             </div>
-            <button class="container-log-out">
-                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M481-120v-60h299v-600H481v-60h299q24 0 42 18t18 42v600q0 24-18 42t-42 18H481Zm-55-185-43-43 102-102H120v-60h363L381-612l43-43 176 176-174 174Z"/></svg>
-                <p>Cerrar Sesión</p>
-            </button>
+            <a href="operations/log-out.php">
+                <button class="container-log-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M481-120v-60h299v-600H481v-60h299q24 0 42 18t18 42v600q0 24-18 42t-42 18H481Zm-55-185-43-43 102-102H120v-60h363L381-612l43-43 176 176-174 174Z"/></svg>
+                    <p>Cerrar Sesión</p>
+                </button>
+            </a>
         </div>
     </header>
     <div class="nav-info">
@@ -80,6 +94,26 @@
                     <th class="accions">Acciones</th>
                 </thead>
                 <tbody>
+                    
+                    <?php
+                        foreach ($students as $student) {
+                            echo '<tr>';
+                            echo '  <td>' . $student->get('codigo') . '</td>';
+                            echo '  <td>' . $student->get('nombre') . '</td>';
+                            echo '  <td>' . $student->get('email') . '</td>';
+                            echo '  <td>' . $student->getP() . '</td>';
+                            echo '<td class="actions"><button class="btn edit">';
+                            echo '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M180-180h44l472-471-44-44-472 471v44Zm-60 60v-128l575-574q8-8 19-12.5t23-4.5q11 0 22 4.5t20 12.5l44 44q9 9 13 20t4 22q0 11-4.5 22.5T823-694L248-120H120Zm659-617-41-41 41 41Zm-105 64-22-22 44 44-22-22Z"/></svg>';
+                            echo '</button>';
+                            echo '<button class="btn delete">';
+                            echo '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M261-120q-24.75 0-42.37-17.63Q201-155.25 201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"/></svg>';
+                            echo '</button></td></tr>';
+                            echo '</tr>';
+                        }
+                        if (count($students) == 0) {
+                            echo '<div>No hay usuarios regitrados</div>';
+                        }
+                    ?>
                 <!--Informacion en php-->
                 <?php
                 echo '<tr><td>EST001</td><td>Juan Pérez</td><td>juan.perez@example.com</td><td>Ingeniería de Sistemas</td>

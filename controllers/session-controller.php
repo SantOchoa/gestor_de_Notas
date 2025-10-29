@@ -8,14 +8,14 @@ class SessionController
         session_start();
     }
     
-    public function create($student)
+    public function create($user)
     {
-        $_SESSION['student'] = $student->get('codigo');
-        $_SESSION['studentname'] = $student->get('nombre');
+        $_SESSION['user'] = $user->get('id');
+        $_SESSION['username'] = $user->get('userName');
     }
 
     public function validar($url) {
-        if(empty($_SESSION['student'])){
+        if(empty($_SESSION['user'])){
             header("Location: $url");
         }
     }

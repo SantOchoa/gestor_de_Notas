@@ -18,14 +18,14 @@
                 <p>Sistema de Gestión de Notas</p>
             </div>
             <!-- Hacer el login y enviar a dashboard-programs -->
-            <form xclass="form-login" name="startSession">
+            <form class="form-login" name="startSession">
                 <div class="space">
-                    <label for="userName">Usuario</label>
-                    <input type="text" name="userName" id="userName" placeholder="Ingrese su usuario">
+                    <label for="user">Usuario</label>
+                    <input type="text" name="user" id="user" placeholder="Ingrese su usuario">
                 </div>
                 <div class="space">
-                    <label for="userCode">Contraseña</label>
-                    <input type="password" name="userCode" id="userCode" placeholder="Ingrese su contraseña">
+                    <label for="pwd">Contraseña</label>
+                    <input type="password" name="pwd" id="pwd" placeholder="Ingrese su contraseña">
                 </div>
                 <button class="button-log" type="submit">Ingresar</button>
             </form>
@@ -48,6 +48,7 @@
             <button type="reset">Aceptar</button>
         </form>
     </div>
+    
     <script src="../public/JS/ventanasemergentes.js"></script>
 </body>
 </html>

@@ -15,6 +15,7 @@ class Student{
     private $nombre;
     private $email;
     private Programa $programa;
+    
 
     public function set($prop, $val)
     {
@@ -23,6 +24,12 @@ class Student{
     public function get($prop)
     {
         return $this->{$prop};
+    }
+    public function getP()
+    {
+        $codigoP = $this->programa->get('codigo');
+        $nombreP = $this->programa->get('nombre');
+        return ;
     }
     public function all()
     {
@@ -36,37 +43,32 @@ class Student{
                 $student = new Student();
                 $student->set('codigo', $item['codigo']);
                 $student->set('nombre', $item['nombre']);
+                $student->set('email', $item['email']);
+                $program = new Programa();
+                $program->set('codigo', $item['codigo']);
+                $program->set('name', $item['nombre']);
+                $student->set('programa', $program);
                 array_push($rows, $student);
             }
         }
         return $rows;
     }
 
-    public function find()
+    public function save()
     {
-        $sql = Studentsql::selectByUserCod();
+        $sql = Studentsql::insertInto();
         $db = new GestorNotasDB();
-        $db->setIsSqlSelect(true);
         $result = $db->execSQL(
-            $sql,
-            "ss",
-            $this->nombre,
-            $this->codigo
+            $sql, 
+            "ssss", 
+            $this->codigo, 
+            $this->nombre, 
+            $this->email, 
+            $this->programa->get('codigo')
         );
-        $student = null;
-        
-            while ($row = $result->fetch_assoc()) {
-                $student = new Student();
-                $student->codigo = $row["codigo"];
-                $student->nombre = $row["nombre"];
-                $student->email = $row["email"];
-                $programa = new Programa();
-                $programa->set("cod", $row["programa"]);
-                $student->programa = $programa;
-                break;
-            }
-        return $student;
+        return $result;
     }
+
     public function update()
     {
         $sql = Studentsql::update();
@@ -77,7 +79,19 @@ class Student{
             $this->codigo,
             $this->nombre,
             $this->email,
-            $this->programa->get("id")
+            $this->programa->get('codigo')
+        );
+        return $result;
+    }
+
+    public function delete()
+    {
+        $sql = Studentsql::delete();
+        $db = new GestorNotasDB();
+        $result = $db->execSQL(
+            $sql,
+            "s",
+            $this->codigo
         );
         return $result;
     }
