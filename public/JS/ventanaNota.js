@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const modalCrear = document.getElementById("modal-programa");
+    const modalCrear = document.getElementById("modal-nota");
     const abrirCrearBtn = document.querySelector(".name-create button");
     const cerrarCrearBtn = document.getElementById("cerrarModal");
     const cancelarCrearBtn = document.getElementById("cancelarModal");
@@ -27,9 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalEditar = document.getElementById("modal-editar");
     const cerrarEditarBtn = document.getElementById("cerrarEditar");
     const cancelarEditarBtn = document.getElementById("cancelarEditar");
-    const formEditar = document.getElementById("form-editar");
-    const inputEditar = document.getElementById("editarNombre");
-    const inputCodigoEditar = document.getElementById("codigoE");
+    const inputEditar = document.getElementById("nombreNota");
+    const inputCodigoEditar = document.getElementById("codigoNota");
 
 
     const editarBtns = document.querySelectorAll(".btn.edit");
@@ -65,7 +64,7 @@ const divConfirmacion = document.getElementById('confirmacionEliminar');
 const btnCancelarEliminar = document.getElementById('cancelarEliminar');
 const btnContinuarEliminar = document.getElementById('continuarEliminar');
 
-const eliminarBtns = document.querySelectorAll(".btn.delete, .btn-eliminar-programa");
+const eliminarBtns = document.querySelectorAll(".btn.delete, .btn-eliminar-nota");
 
 eliminarBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {

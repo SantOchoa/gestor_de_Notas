@@ -15,6 +15,7 @@ if (overlayDelete) {
 		targetRow = row;
 		const nombre = row.cells[1] ? row.cells[1].textContent.trim() : '';
 		messageP.textContent = `¿Está seguro de eliminar al estudiante "${nombre}"?`;
+		
 		const codigo = row.cells[0] ? row.cells[0].textContent.trim() : '';
 		student.value = codigo;
 		

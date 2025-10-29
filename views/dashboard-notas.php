@@ -122,74 +122,49 @@ $notas = $notaController->getAllNotas();
 
         </div>
     </div>
-    <div class="overlay-crear-nota">
-        <div class="overlay-content">
-            <div class="overlay-header">
-                <h1>Nueva Nota</h1>
-            </div>
-            <form action="">
-                <div class="info-form">
-                    <label for="studentName">Estudiante</label>
-                    <select name="studentName" id="studentName">
-                        <!--Hacer los estudiantes-->
-                    </select>                    
-                    <label for="materia">Materia</label>
-                    <select name="materia" id="materia">
-                        <!--Hacer los estudiantes-->
-                    </select>  
-                    <label for="nota">Nota (0-5)</label>
-                    <input type="number" placeholder="Ingrese la nota">
-                </div>
-                <div class="buttons-form">
-                    <button>Cancelar</button>
-                    <button type="submit">Crear</button>
+    <div id="modal-nota" class="modal">
+        <div class="modal-content">
+            <span class="close" id="cerrarModal">&times;</span>
+            <h2>Nueva Nota</h2>
+            <form id="form-nota" action="operations/crear-nota.php" method="POST">
+                <label for="nombreNota">Nombre de la Nota</label>
+                <input type="text" id="nombreNota" name="nombreNota" placeholder="Ingrese el nombre de la nota" required>
+                <label for="codigo">Código de la nota</label>
+                <input type="number" id="codigo" name="codigoNota" placeholder="Ingrese el código de la nota" required>
+                <div class="modal-buttons">
+                    <button type="button" id="cancelarModal">Cancelar</button>
+                    <button type="submit" id="nota">Crear</button>
                 </div>
             </form>
         </div>
     </div>
-    <div class="overlay-editar-nota">
-        <div class="overlay-content">
-            <div class="overlay-header">
-                <h1>Editar Estudiante</h1>
-            </div>
-            <form action="">
-                <div class="info-form">
-                    <label for="studentName">Estudiante</label>
-                    <select name="studentName" id="studentName">
-                        <!--Hacer los estudiantes-->
-                    </select>                    
-                    <label for="materia">Materia</label>
-                    <select name="materia" id="materia">
-                        <!--Hacer los estudiantes-->
-                    </select>  
-                    <label for="nota">Nota (0-5)</label>
-                    <input type="number" placeholder="Ingrese la nota">
-                </div>
-                <div class="buttons-form">
-                    <button>Cancelar</button>
-                    <button type="submit">Actualizar</button>
+
+    <div id="modal-editar" class="modal">
+        <div class="modal-content">
+            <span class="close" id="cerrarEditar">&times;</span>
+            <h2>Editar nota</h2>
+            <form id="form-editar" action="operations/modificar-nota.php" method="post">
+                <label for="nombreNota">Nombre de la nota</label>
+                <input type="text" id="nombreNota" name="nombreNota" required>
+                <input type="number" id="codigoNota" name="codigoNota" placeholder="Ingrese el código de la nota" required>
+                <div class="modal-buttons">
+                    <button type="button" id="cancelarEditar">Cancelar</button>
+                    <button type="submit" id="nota">Actualizar</button>
                 </div>
             </form>
         </div>
     </div>
-    <div class="overlay-deletenota">
-        <div class="overlay-content">
-            <div class="overlay-header">
-                <h1>Eliminar</h1>
+
+    <div id="confirmacionEliminar" class="confirmacion-eliminar">
+        <div class="confirmacion-contenido">
+            <h3>¿Eliminar nota?</h3>
+            <p>Esta acción no se puede deshacer.</p>
+            <div class="botones-confirmacion">
+            <button id="cancelarEliminar" class="btn-cancelar">Cancelar</button>
+            <button id="continuarEliminar" class="btn-continuar">Eliminar</button>
             </div>
-            <form action="">
-                <div class="info-form">
-                    <p>¿Esta seguro de eliminar el estudiante?</p>
-                </div>
-                <div class="buttons-form">
-                    <button>Cancelar</button>
-                    <button type="submit">Connfirmar</button>
-                </div>
-            </form>
         </div>
     </div>
-    <script src="../public/JS/overlay-crear-nota.js"></script>
-    <script src="../public/JS/overlay-editar-nota.js"></script>
-    <script src="../public/JS/overlay-deletenota.js"></script>
+    <script src="../public/js/ventanaNota.js"></script>
 </body>
 </html>
