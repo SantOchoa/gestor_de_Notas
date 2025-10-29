@@ -1,7 +1,7 @@
 <?php
 namespace Models\Entities;
 
-require __DIR__."/../utils/materiasql.php";
+require_once __DIR__."/../utils/materiasql.php";
 require_once __DIR__."/programa.php";
 
 use Models\Utils\MateriaSQL;
@@ -68,6 +68,43 @@ class Materia{
             }
         }
         return $nombreP;
+    }
+    public function save()
+    {
+        $sql = MateriaSQL::insertInto();
+        $db = new GestorNotasDB();
+        $result = $db->execSQL(
+            $sql,
+            "isi",
+            $this->cod,
+            $this->name,
+            $this->programaCode
+        );
+        return $result;
+    }
+    public function update()
+    {
+        $sql = MateriaSQL::update();
+        $db = new GestorNotasDB();
+        $result = $db->execSQL(
+            $sql,
+            "sii",
+            $this->name,
+            $this->programaCode,
+            $this->cod
+        ); 
+        return $result;
+    }
+    public function delete()
+    {
+        $sql = MateriaSQL::delete();
+        $db = new GestorNotasDB();
+        $result = $db->execSQL(
+            $sql,
+            "i",
+            $this->cod
+        );
+        return $result;
     }
 
 }

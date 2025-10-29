@@ -1,7 +1,7 @@
 <?php
 namespace Controllers;
 
-require __DIR__."/../models/entities/programa.php";
+require_once __DIR__."/../models/entities/programa.php";
 use Models\Entities\Programa;
 
 class ProgramController{

@@ -3,8 +3,8 @@
 namespace Models\Entities;
 
 
-require __DIR__."/../utils/programasql.php";
-require __DIR__."/../database/gestor_notasdb.php";
+require_once __DIR__."/../utils/programasql.php";
+require_once __DIR__."/../database/gestor_notasdb.php";
 
 use Model\DataBase\GestorNotasDB;
 use Models\Utils\Programasql;
