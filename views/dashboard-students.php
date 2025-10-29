@@ -66,7 +66,7 @@
         <div class="banner-info">
             <div class="name-create">
                 <h2>Estudiantes</h2>
-                <button>
+                <button id="crear">
                     <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M450-450H200v-60h250v-250h60v250h250v60H510v250h-60v-250Z"/></svg>
                     <p>Nuevo Estudiante</p>
                 </button>
@@ -93,8 +93,29 @@
                 </tbody>
                 
             </table>
-
         </div>
     </div>
+    <div class="overlay-crear-estudiante">
+        <div>
+            <h1></h1>
+        </div>
+        <form action="">
+            <div class="info-form">
+                <label for="studentName">Nombre Completo</label>
+                <input type="text" name="studentName" id="studentName" placeholder="Ingrese el nombre completo del estudiante">
+                <label for="email">Correo Electronico</label>
+                <input type="email" name="email" id="email" placeholder="correo@example.com">
+                <label for="studentprogram">Programa de Formación</label>
+                <select name="studentprogram" id="studentprogram">
+                    <!--Hacer los programas de formacion-->
+                </select>
+            </div>
+            <div class="buttons-form">
+                <button>Cancelar</button>
+                <button type="submit">Crear</button>
+            </div>
+        </form>
+    </div>
+    <script src="../public/JS/overlay-crear-estudiante.js"></script>
 </body>
 </html>
