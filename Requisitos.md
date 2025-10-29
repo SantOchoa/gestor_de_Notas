@@ -6,7 +6,7 @@ Se requiere desarrollar una aplicación que permita gestionar las notas de las m
 - [ ] Se puede eliminar un estudiante siempre que no tenga notas registradas. De lo contrario no se puede eliminar.  
     
 - [ ] El sistema debe poder consultar, crear, modificar y eliminar programas de formación.  
-- [ ] La información que se debe guardar del programa de formación es: código y nombre.  
+- [x] La información que se debe guardar del programa de formación es: código y nombre.  
 - [ ] Se puede modificar solo el nombre de un programa de formación y siempre que este no este relacionado a estudiantes o materias. De lo contrario no se puede modificar.  
 - [ ] Un programa de formación puede tener relacionado varios estudiantes y varias materias.  
 - [ ] Se puede eliminar un programa de formación siempre que no tenga materias o estudiantes relacionados. De lo contrario no se puede eliminar.  

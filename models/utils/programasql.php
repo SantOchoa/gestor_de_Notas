@@ -11,13 +11,13 @@ class Programasql{
         return "select * from programas where codigo=?";
     }
     public static function insertInto(){
-        return "insert into programas (codigo,nombre)values(?,?)";
+        return "insert into programas (codigo,nombre) values(?,?)";
     }
     public static function update(){
         return "update programas set nombre=? where codigo=?";
     }
     public static function delete(){
-        return "delete form programas where codigo=?";
+        return "delete from programas where codigo=?";
     }
 }
 ?>

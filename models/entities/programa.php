@@ -40,6 +40,49 @@ class Programa {
         }
         return $rows;
     }
+    public function save()
+    {
+        $sql = Programasql::insertInto();
+        $db = new GestorNotasDB();
+        $result = $db->execSQL(
+            $sql,
+            "is",
+            $this->codigo,
+            $this->nombre
+        );
+        return $result;
+    }
+
+
+    public function update()
+    {
+        $sql = Programasql::update();
+        $db = new GestorNotasDB();
+        $result = $db->execSQL(
+            $sql,
+            "si",
+            $this->nombre,
+            $this->codigo
+        );
+        return $result;
+    }
+
+    public function delete()
+    {
+        $sql = Programasql::delete();
+        $db = new GestorNotasDB();
+        $result = $db->execSQL(
+            $sql,
+            "i",
+            $this->codigo
+        );
+        return $result;
+    }
+
+
+
+
+
     public function getByCode($cod)
     {
         $nombreP = "";

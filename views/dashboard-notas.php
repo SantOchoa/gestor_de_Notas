@@ -90,6 +90,7 @@ $notas = $notaController->getAllNotas();
                 <thead>
                     <th>Estudiante</th>
                     <th>Materia</th>
+                    <th>Actividad</th>
                     <th>Nota</th>
                     <th>Promedio</th>
                     <th class="accions">Acciones</th>
@@ -100,6 +101,7 @@ $notas = $notaController->getAllNotas();
                             echo '<tr>';
                             echo '  <td>' . $nota->getS() . '</td>';
                             echo '  <td>' . $nota->getM() . '</td>';
+                            echo '  <td>' . $nota->get('actividad') . '</td>';
                             echo '  <td>' . $nota->get('nota') . '</td>';
                             echo '  <td>' . 'aUN NO'. '</td>';
                             echo '<td class="actions"><button class="btn edit">';

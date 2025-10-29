@@ -122,9 +122,11 @@ $programs=$programController->getPrograms();
     <div class="modal-content">
         <span class="close" id="cerrarModal">&times;</span>
         <h2>Nuevo Programa</h2>
-        <form id="form-programa">
+        <form id="form-programa" action="operations/crear-programa.php" method="POST">
             <label for="nombrePrograma">Nombre del Programa</label>
             <input type="text" id="nombrePrograma" name="nombrePrograma" placeholder="Ingrese el nombre del programa" required>
+            <label for="codigo">Código del Programa</label>
+            <input type="number" id="codigo" name="codigo" placeholder="Ingrese el código del programa" required>
             <div class="modal-buttons">
                 <button type="button" id="cancelarModal">Cancelar</button>
                 <button type="submit" id="crearPrograma">Crear</button>
@@ -137,9 +139,10 @@ $programs=$programController->getPrograms();
     <div class="modal-content">
         <span class="close" id="cerrarEditar">&times;</span>
         <h2>Editar Programa</h2>
-        <form id="form-editar">
+        <form id="form-editar" action="operations/modificar-programa.php" method="post">
             <label for="editarNombre">Nombre del Programa</label>
             <input type="text" id="editarNombre" name="editarNombre" required>
+            <input type="number" id="codigoE" name="codigoE" placeholder="Ingrese el código del programa" required>
             <div class="modal-buttons">
                 <button type="button" id="cancelarEditar">Cancelar</button>
                 <button type="submit" id="actualizarPrograma">Actualizar</button>
