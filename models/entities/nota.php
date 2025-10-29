@@ -56,8 +56,20 @@ class Nota{
         }
         return $rows;
     }
-
-
+    public function save()
+    {
+        $sql = NotaSQL::insertInto();
+        $db = new GestorNotasDB();
+        $result = $db->execSQL(
+            $sql,
+            "iisi",
+            $this->materiaCode,
+            $this->studentCode,
+            $this->actividad,
+            $this->nota
+        );
+        return $result;
+    }
     
 }
 
