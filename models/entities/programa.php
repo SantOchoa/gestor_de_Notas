@@ -23,23 +23,41 @@ class Programa {
     {
         return $this->{$prop};
     }
-    public function getByCode($codigoP)
+    public function all()
     {
+        $sql = Programasql::selectAll();
+        $db = new GestorNotasDB();
+        $db->setIsSqlSelect(true);
+        $result = $db->execSQL($sql);
+        $rows = [];
+        if ($result->num_rows > 0) {
+            while ($item = $result->fetch_assoc()) {
+                $student = new Programa();
+                $student->set('codigo', $item['codigo']);
+                $student->set('nombre', $item['nombre']);
+                array_push($rows, $student);
+            }
+        }
+        return $rows;
+    }
+    public function getByCode($cod)
+    {
+        $nombreP = "";
         $sql = Programasql::selectByCode();
         $db = new GestorNotasDB();
         $db->setIsSqlSelect(true);
         $result = $db->execSQL(
             $sql,
-            "s",
-            $codigoP
+            "i",
+            $cod
         );
         $programa = null;
-        $nombreP = "";
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $programa = new Programa();
-                $programa->codigo = $row["codigo"];
-                $nombreP=$programa->nombre = $row["nombre"];
+                $programa->set('codigo',$row["codigo"])  ;
+                $programa->set('nombre', $row['nombre']);
+                $nombreP = $programa->get('nombre');
                 break;
             }
         }

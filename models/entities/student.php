@@ -1,10 +1,8 @@
 <?php
 namespace Models\Entities;
 
-
+require_once __DIR__."/../entities/programa.php";
 require __DIR__."/../utils/studentsql.php";
-require __DIR__."/../database/gestor_notasdb.php";
-require __DIR__."/programa.php";
 
 use Models\Entities\Programa;
 use Models\Utils\Studentsql;
@@ -45,7 +43,7 @@ class Student{
                 $student->set('codigo', $item['codigo']);
                 $student->set('nombre', $item['nombre']);
                 $student->set('email', $item['email']);
-                $student->set('programa', $item['programa']);
+                $student->set('programaCode', $item['programa']);
                 array_push($rows, $student);
             }
         }
@@ -92,6 +90,32 @@ class Student{
             $this->codigo
         );
         return $result;
+    }
+    public function getByCode($cod)
+    {
+        $nombreP = "";
+        $sql = Studentsql::selectByCode();
+        $db = new GestorNotasDB();
+        $db->setIsSqlSelect(true);
+        $result = $db->execSQL(
+            $sql,
+            "i",
+            $cod
+        );
+        $student = null;
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $student = new Student();
+                $student->set('codigo', $row['codigo']);
+                $student->set('nombre', $row['nombre']);
+                $student->set('email', $row['email']);
+                $student->set('programaCode', $row['programa']);
+                $nombreP = $student->get('nombre');
+                break;
+            }
+        }
+        
+        return $nombreP;
     }
 }
 ?>
