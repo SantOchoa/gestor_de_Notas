@@ -22,6 +22,13 @@ class ProgramController{
         $program->set('codigo', $data['codigoE']);
         return $program->update();
     }
+    public function deleteProgram($request)
+    {
+
+        $program = new Programa();
+        $program->set('codigo', $request['codigoPrograma']);
+        return $program->delete();
+    }
 
 }
 

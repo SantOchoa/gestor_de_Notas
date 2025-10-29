@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalEditar = document.getElementById("modal-editar");
     const cerrarEditarBtn = document.getElementById("cerrarEditar");
     const cancelarEditarBtn = document.getElementById("cancelarEditar");
-    const inputEditar = document.getElementById("nombreStudent");
-    const inputCodigoEditar = document.getElementById("codigoStudent");
+    const inputEditar = document.getElementById("nombreStudentE");
+    const inputCodigoEditar = document.getElementById("codigoStudentE");
 
 
     const editarBtns = document.querySelectorAll(".btn.edit");
@@ -64,13 +64,13 @@ const btnCancelarEliminar = document.getElementById('cancelarEliminar');
 const btnContinuarEliminar = document.getElementById('continuarEliminar');
 
 const eliminarBtns = document.querySelectorAll(".btn.delete, .btn-eliminar-student");
+const inputCodigoEli = document.getElementById("codigoStudentEli");
 
 eliminarBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     const fila = e.target.closest("tr");
-    if (!fila) return; 
-
-    codigoSeleccionado = fila.dataset.codigo ? fila.dataset.codigo.trim() : fila.children[0].innerText.trim();
+    const codigoActual = fila.children[0].innerText;
+    inputCodigoEli.value = codigoActual;
     divConfirmacion.style.display = "flex";
   });
 });

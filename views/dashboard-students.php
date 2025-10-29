@@ -1,11 +1,15 @@
 <?php
 require __DIR__ . "/../controllers/student-controller.php";
+require_once __DIR__."/../controllers/program-controller.php";
 
 
 use Controllers\StudentController;
+use Controllers\ProgramController;
 
 $studentController = new StudentController();
 $students = $studentController->getStudent();
+$programController = new ProgramController();
+$programs = $programController->getPrograms();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -125,6 +129,17 @@ $students = $studentController->getStudent();
                 <input type="text" id="nombreStudent" name="nombreStudent" placeholder="Ingrese el nombre del Estudiante" required>
                 <label for="codigoStudent">Código del Estudiante</label>
                 <input type="number" id="codigoStudent" name="codigoStudent" placeholder="Ingrese el código del Estudiante" required>
+                <label for="emailStudent">Email del Estudiante</label>
+                <input type="email" id="emailStudent" name="emailStudent" placeholder="Ingrese el email del Estudiante" required>
+                <label for="programaCode">Código del Programa</label>
+                <select name="programaSelect" id="programaSelect" required>
+                    <option value="">Seleccione un programa</option>
+                    <?php
+                    foreach ($programs as $program) {
+                        echo '<option value="' . $program->get('codigo') . '">' . $program->get('nombre') . '</option>';
+                    }
+                    ?>
+                </select>
                 <div class="modal-buttons">
                     <button type="button" id="cancelarModal">Cancelar</button>
                     <button type="submit" id="student">Crear</button>
@@ -138,9 +153,20 @@ $students = $studentController->getStudent();
             <span class="close" id="cerrarEditar">&times;</span>
             <h2>Editar student</h2>
             <form id="form-editar" action="operations/modificar-student.php" method="post">
-                <label for="nombreStudent">Nombre del Estudiante</label>
-                <input type="text" id="nombreStudent" name="nombreStudent" required>
-                <input type="number" id="codigoStudent" name="codigoStudent" placeholder="Ingrese el código del Estudiante" required>
+                <label for="nombreStudentE">Nombre del Estudiante</label>
+                <input type="text" id="nombreStudentE" name="nombreStudent" placeholder="Ingrese el nombre del Estudiante" required>
+                <input type="hidden" id="codigoStudentE" name="codigoStudent" placeholder="Ingrese el código del Estudiante" required>
+                <label for="emailStudent">Email del Estudiante</label>
+                <input type="email" id="emailStudent" name="emailStudent" placeholder="Ingrese el email del Estudiante" required>
+                <label for="programaCode">Código del Programa</label>
+                <select name="programaSelect" id="programaSelect" required>
+                    <option value="">Seleccione un programa</option>
+                    <?php
+                    foreach ($programs as $program) {
+                        echo '<option value="' . $program->get('codigo') . '">' . $program->get('nombre') . '</option>';
+                    }
+                    ?>
+                </select>
                 <div class="modal-buttons">
                     <button type="button" id="cancelarEditar">Cancelar</button>
                     <button type="submit" id="student">Actualizar</button>
@@ -155,7 +181,10 @@ $students = $studentController->getStudent();
             <p>Esta acción no se puede deshacer.</p>
             <div class="botones-confirmacion">
             <button id="cancelarEliminar" class="btn-cancelar">Cancelar</button>
-            <button id="continuarEliminar" class="btn-continuar">Eliminar</button>
+            <form action="operations/delete-student.php" method="post">
+                <input type="hidden" id="codigoStudentEli" name="codigoStudent" required>
+                <button id="continuarEliminar" class="btn-continuar" type="submit">Eliminar</button>
+            </form>
             </div>
         </div>
     </div>

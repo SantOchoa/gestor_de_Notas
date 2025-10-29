@@ -71,11 +71,11 @@ class Student{
         $db = new GestorNotasDB();
         $result = $db->execSQL(
             $sql,
-            "ssss",
-            $this->codigo,
+            "sssi",
             $this->nombre,
             $this->email,
-            $this->programaCode
+            $this->programaCode,
+            $this->codigo
         );
         return $result;
     }

@@ -66,13 +66,13 @@ const btnCancelarEliminar = document.getElementById('cancelarEliminar');
 const btnContinuarEliminar = document.getElementById('continuarEliminar');
 
 const eliminarBtns = document.querySelectorAll(".btn.delete, .btn-eliminar-programa");
+const inputCodigoEli = document.getElementById("codigoProgramaEliminar");
 
 eliminarBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    const fila = e.target.closest("tr");
-    if (!fila) return; 
-
-    codigoSeleccionado = fila.dataset.codigo ? fila.dataset.codigo.trim() : fila.children[0].innerText.trim();
+    const fila = e.target.closest('tr');
+    const codigoActual = fila.children[0].innerText;
+    inputCodigoEli.value = codigoActual;
     divConfirmacion.style.display = "flex";
   });
 });
