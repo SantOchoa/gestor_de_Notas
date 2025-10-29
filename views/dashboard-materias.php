@@ -1,10 +1,15 @@
 <?php
     require __DIR__ . "/../controllers/materia-controller.php";
+    require_once __DIR__."/../controllers/program-controller.php";
 
     use Controllers\MateriaController;
+    use Controllers\ProgramController;
 
     $materiaController = new MateriaController();
     $materias = $materiaController->getAllMaterias();
+
+    $programController = new ProgramController();
+    $programs = $programController->getPrograms();
 
 ?>
 
@@ -127,5 +132,69 @@
 
         </div>
     </div>
+    <div id="modal-materia" class="modal">
+        <div class="modal-content">
+            <span class="close" id="cerrarModal">&times;</span>
+            <h2>Nueva Materia</h2>
+            <form id="form-materia" action="operations/crear-materia.php" method="POST">
+                <label for="nombreMateria">Nombre de la Materia</label>
+                <input type="text" id="nombreMateria" name="nombreMateria" placeholder="Ingrese el nombre de la materia" required>
+                <label for="codigo">Código de la Materia</label>
+                <input type="number" id="codigo" name="codigo" placeholder="Ingrese el código de la materia" required>
+                <label for="programaSelect">Programa de Formación</label>
+                <select name="programaSelect" id="programaSelect" required>
+                    <option value="">Seleccione un programa</option>
+                    <?php
+                    foreach ($programs as $program) {
+                        echo '<option value="' . $program->get('codigo') . '">' . $program->get('nombre') . '</option>';
+                    }
+                    ?>
+                </select>
+                <div class="modal-buttons">
+                    <button type="button" id="cancelarModal">Cancelar</button>
+                    <button type="submit" id="crearPrograma">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="modal-editar" class="modal">
+        <div class="modal-content">
+            <span class="close" id="cerrarEditar">&times;</span>
+            <h2>Editar Materia</h2>
+            <form id="form-editar" action="operations/modificar-materia.php" method="post">
+                <label for="editarNombre">Nombre de la Materia</label>
+                <input type="text" id="editarNombre" name="editarNombre" required>
+                <input type="hidden" id="codigoE" name="codigoE" placeholder="Ingrese el código del programa" required>
+                <label for="programaSelect">Programa de Formación</label>
+                <select name="programaSelect" id="programaSelect"  required>
+                    <?php
+                    foreach ($programs as $program) {
+                        echo '<option value="' . $program->get('codigo') . '">' . $program->get('nombre') . '</option>';
+                    }
+                    ?>
+                </select>
+                <div class="modal-buttons">
+                    <button type="button" id="cancelarEditar">Cancelar</button>
+                    <button type="submit" id="actualizarPrograma">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="confirmacionEliminar" class="confirmacion-eliminar">
+        <div class="confirmacion-contenido">
+            <h3>¿Eliminar programa?</h3>
+            <p>Esta acción no se puede deshacer.</p>
+            <div class="botones-confirmacion">
+            <button id="cancelarEliminar" class="btn-cancelar">Cancelar</button>
+            <form id="form-eliminar" action="operations/delete-materia.php" method="post">
+                <input type="text" id="codigoEli" name="codigoEli" placeholder="Ingrese el código del programa" required>
+                <button id="continuarEliminar" class="btn-continuar" type="submit">Eliminar</button>
+            </form>
+            
+            </div>
+        </div>
+    </div>
+    <script src="../public/JS/ventanamateria.js"></script>
 </body>
 </html>
