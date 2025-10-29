@@ -1,18 +1,19 @@
 // Elementos del DOM
 const botonesEditar = document.querySelectorAll('.btn.edit');
-const overlayEditar = document.querySelector('.overlay-editar-estudiante');
+const overlayEditar = document.querySelector('.overlay-editar-nota');
 const btnCancelarEdicion = overlayEditar.querySelector('.buttons-form button:first-child');
 const formEditar = overlayEditar.querySelector('form');
 
 // Función para mostrar el overlay de edición
-const mostrarOverlayEditar = (studentData) => {
-    // Rellenar el formulario con los datos del estudiante
+const mostrarOverlayEditar = (NotaData) => {
     const nombreInput = overlayEditar.querySelector('#studentName');
-    const emailInput = overlayEditar.querySelector('#email');
+    const materiaInput = overlayEditar.querySelector('#materia');
+    const notaInput = overlayEditar.querySelector('#nota');
 
     // Obtener los datos de la fila seleccionada
-    nombreInput.value = studentData.nombre;
-    emailInput.value = studentData.email;
+    nombreInput.value = NotaData.nombre;
+    materiaInput.value = NotaData.materia;
+    nombreInput.value = NotaData.nota;
     // El programa se seleccionará cuando tengamos la lista de programas
 
     overlayEditar.style.display = 'flex';
@@ -35,13 +36,12 @@ botonesEditar.forEach(boton => {
     boton.addEventListener('click', () => {
         // Obtener los datos de la fila
         const fila = boton.closest('tr');
-        const studentData = {
-            codigo: fila.cells[0].textContent,
-            nombre: fila.cells[1].textContent,
-            email: fila.cells[2].textContent,
-            programa: fila.cells[3].textContent
+        const NotaData = {
+            estudiante: fila.cells[0].textContent,
+            materia: fila.cells[1].textContent,
+            nota: fila.cells[2].textContent,
         };
-        mostrarOverlayEditar(studentData);
+        mostrarOverlayEditar(NotaData);
     });
 });
 

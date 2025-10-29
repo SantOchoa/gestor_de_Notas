@@ -66,7 +66,7 @@
         <div class="banner-info">
             <div class="name-create">
                 <h2>Notas</h2>
-                <button>
+                <button id="crear">
                     <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M450-450H200v-60h250v-250h60v250h250v60H510v250h-60v-250Z"/></svg>
                     <p>Nueva Nota</p>
                 </button>
@@ -96,5 +96,74 @@
 
         </div>
     </div>
+    <div class="overlay-crear-nota">
+        <div class="overlay-content">
+            <div class="overlay-header">
+                <h1>Nueva Nota</h1>
+            </div>
+            <form action="">
+                <div class="info-form">
+                    <label for="studentName">Estudiante</label>
+                    <select name="studentName" id="studentName">
+                        <!--Hacer los estudiantes-->
+                    </select>                    
+                    <label for="materia">Materia</label>
+                    <select name="materia" id="materia">
+                        <!--Hacer los estudiantes-->
+                    </select>  
+                    <label for="nota">Nota (0-5)</label>
+                    <input type="number" placeholder="Ingrese la nota">
+                </div>
+                <div class="buttons-form">
+                    <button>Cancelar</button>
+                    <button type="submit">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="overlay-editar-nota">
+        <div class="overlay-content">
+            <div class="overlay-header">
+                <h1>Editar Estudiante</h1>
+            </div>
+            <form action="">
+                <div class="info-form">
+                    <label for="studentName">Estudiante</label>
+                    <select name="studentName" id="studentName">
+                        <!--Hacer los estudiantes-->
+                    </select>                    
+                    <label for="materia">Materia</label>
+                    <select name="materia" id="materia">
+                        <!--Hacer los estudiantes-->
+                    </select>  
+                    <label for="nota">Nota (0-5)</label>
+                    <input type="number" placeholder="Ingrese la nota">
+                </div>
+                <div class="buttons-form">
+                    <button>Cancelar</button>
+                    <button type="submit">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="overlay-deletenota">
+        <div class="overlay-content">
+            <div class="overlay-header">
+                <h1>Eliminar</h1>
+            </div>
+            <form action="">
+                <div class="info-form">
+                    <p>¿Esta seguro de eliminar el estudiante?</p>
+                </div>
+                <div class="buttons-form">
+                    <button>Cancelar</button>
+                    <button type="submit">Connfirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="../public/JS/overlay-crear-nota.js"></script>
+    <script src="../public/JS/overlay-editar-nota.js"></script>
+    <script src="../public/JS/overlay-deletenota.js"></script>
 </body>
 </html>
