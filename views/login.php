@@ -18,7 +18,7 @@
                 <p>Sistema de Gestión de Notas</p>
             </div>
             <!-- Hacer el login y enviar a dashboard-programs -->
-            <form action="operations\start-session.php" methos="post" class="form-login">
+            <form xclass="form-login" name="startSession">
                 <div class="space">
                     <label for="userName">Usuario</label>
                     <input type="text" name="userName" id="userName" placeholder="Ingrese su usuario">
@@ -37,6 +37,17 @@
             <p>© 2025 NotasApp - Sistema de Gestión Académica</p>
         </div>
     </div>
-    
+
+
+    <div id="vacio" class="modal" >
+        <h3 class="titulo">Falta de informacion</h3>
+        <p class="descripcion">Los dos campos deben estar llenos</p>
+        <form name="vacioForm" 
+      
+        >
+            <button type="reset">Aceptar</button>
+        </form>
+    </div>
+    <script src="../public/JS/ventanasemergentes.js"></script>
 </body>
 </html>
