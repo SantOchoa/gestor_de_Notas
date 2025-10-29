@@ -11,7 +11,7 @@
 .student:hover{
     background-color: rgb(158, 35, 35);
 }
-.overlay-crear-estudiante, .overlay-editar-estudiante {
+.overlay-crear-estudiante, .overlay-editar-estudiante, .overlay-deletestudent {
     display: none; /* Inicialmente oculto */
     position: fixed;
     top: 0;
@@ -46,7 +46,7 @@
     font-weight: 600;
 }
 
-.overlay-crear-estudiante form, .overlay-editar-estudiante form {
+.overlay-crear-estudiante form, .overlay-editar-estudiante form , .overlay-deletestudent form{
     background-color: white;
     padding: 24px;
     border-radius: 16px;

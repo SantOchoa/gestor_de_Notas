@@ -141,7 +141,24 @@
             </form>
         </div>
     </div>
+    <div class="overlay-deletestudent">
+        <div class="overlay-content">
+            <div class="overlay-header">
+                <h1>Eliminar</h1>
+            </div>
+            <form action="">
+                <div class="info-form">
+                    <p>¿Esta seguro de eliminar el estudiante?</p>
+                </div>
+                <div class="buttons-form">
+                    <button>Cancelar</button>
+                    <button type="submit">Connfirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
     <script src="../public/JS/overlay-crear-estudiante.js"></script>
     <script src="../public/JS/overlay-editar-estudiante.js"></script>
+    <script src="../public/JS/overlay-deletestudent.js"></script>
 </body>
 </html>
