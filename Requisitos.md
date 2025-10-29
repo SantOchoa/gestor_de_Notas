@@ -30,9 +30,9 @@ Se requiere desarrollar una aplicación que permita gestionar las notas de las m
 - [ ] Se debe visualizar todas las materias registradas a un estudiante junto con su nota promedio.  
 - [ ] Se debe visualizar todas las notas registradas de un estudiante por materia.  
 - [ ] Todas las operaciones de eliminación deben tener una confirmación de continuar o no en el proceso. Si el usuario continua se procede a eliminar de lo contrario no.  
-- [ ] **El usuario puede navegar en cualquier momento a cualquier funcionalidad, no va a interactuar con la base de datos directamente, por lo que se recomienda que las interfaces deben ser fáciles de usar frente al usuario.**  
+- [x] **El usuario puede navegar en cualquier momento a cualquier funcionalidad, no va a interactuar con la base de datos directamente, por lo que se recomienda que las interfaces deben ser fáciles de usar frente al usuario.**  
     
-- [ ] Se debe crear un proyecto usando POO, MVC con php, html y css (opcional js).  
-- [ ] La entrega debe hacerse en un repositorio en Github.
+- [x] Se debe crear un proyecto usando POO, MVC con php, html y css (opcional js).  
+- [x] La entrega debe hacerse en un repositorio en Github.
 
 ![Modelo](Modelo-entidad-relacion.jpeg)
