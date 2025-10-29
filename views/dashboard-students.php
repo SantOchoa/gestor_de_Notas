@@ -4,7 +4,6 @@ require __DIR__ . "/../controllers/student-controller.php";
 
 use Controllers\StudentController;
 
-
 $studentController = new StudentController();
 $students = $studentController->getStudent();
 ?>
@@ -168,11 +167,13 @@ $students = $studentController->getStudent();
             <div class="overlay-header">
                 <h1>Eliminar</h1>
             </div>
-            <form action="">
+            <form name="deleteForm">
                 <div class="info-form">
-                    <p>¿Esta seguro de eliminar el estudiante?</p>
+                    <p></p>
                 </div>
+                <input type="hidden" name="studentCode" id="studentCode" value="">
                 <div class="buttons-form">
+                    
                     <button>Cancelar</button>
                     <button type="submit">Connfirmar</button>
                 </div>

@@ -86,7 +86,7 @@ class Student{
         $db = new GestorNotasDB();
         $result = $db->execSQL(
             $sql,
-            "s",
+            "i",
             $this->codigo
         );
         return $result;

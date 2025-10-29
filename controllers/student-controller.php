@@ -13,8 +13,8 @@ class StudentController
 
     public function getStudent()
     {
-        $user = new Student();
-        return $user->all();
+        $student = new Student();
+        return $student->all();
     }
 
     public function saveNewStudent($request)
@@ -22,10 +22,10 @@ class StudentController
         if (empty($request['user']) || empty($request['pwd'])) {
             return false;
         }
-        $user = new Student();
-        $user->set('userName', $request['user']);
-        $user->set('password', $request['pwd']);
-        return $user->save();
+        $student = new Student();
+        $student->set('userName', $request['user']);
+        $student->set('password', $request['pwd']);
+        return $student->save();
     }
 
     public function updateStudent($request)
@@ -37,20 +37,20 @@ class StudentController
         ) {
             return false;
         }
-        $user = new Student();
-        $user->set('userName', $request['user']);
-        $user->set('password', $request['pwd']);
-        $user->set('id', $request['id']);
-        return $user->update();
+        $student = new Student();
+        $student->set('userName', $request['user']);
+        $student->set('password', $request['pwd']);
+        $student->set('id', $request['id']);
+        return $student->update();
     }
 
     public function deleteStudent($request)
     {
-        if (empty($request['id'])) {
+        if (empty($request)) {
             return false;
         }
-        $user = new Student();
-        $user->set('id', $request['id']);
-        return $user->delete();
+        $student = new Student();
+        $student->set('codigo', $request);
+        return $student->delete();
     }
 }

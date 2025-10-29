@@ -15,7 +15,7 @@ class Notasql {
         return "update notas set nota=? where estudiante=?";
     }
     public static function delete(){
-        return "delete form notas where nota=?";
+        return "delete from notas where nota=?";
     }
 }   
 

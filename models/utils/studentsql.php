@@ -18,7 +18,7 @@ class Studentsql{
         return "update estudiantes set nombre=?, email=?, programa=? where codigo=?";
     }
     public static function delete(){
-        return "delete form estudiantes where codigo=?";
+        return "delete from estudiantes where codigo=?";
     }
 
 }
