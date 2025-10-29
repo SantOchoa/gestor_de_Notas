@@ -157,7 +157,10 @@ $programs=$programController->getPrograms();
     <p>Esta acción no se puede deshacer.</p>
     <div class="botones-confirmacion">
       <button id="cancelarEliminar" class="btn-cancelar">Cancelar</button>
-      <button id="continuarEliminar" class="btn-continuar">Eliminar</button>
+      <form action="operations/delete-program.php" method="post">
+        <input type="hidden" id="codigoProgramaEliminar" name="codigoPrograma" required>
+        <button id="continuarEliminar" class="btn-continuar" type="submit">Eliminar</button>
+      </form>
     </div>
   </div>
 </div>
