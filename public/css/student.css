@@ -11,8 +11,18 @@
 .student:hover{
     background-color: rgb(158, 35, 35);
 }
-
-
+select{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 8px;
+    padding-inline: 12px;
+    border-width: 1px;
+    border-color: #e4e4e7;
+    border-radius: .625rem;
+    background-color: #f3f3f5;
+    width: 230px;
+}
 .modal {
     display: none; 
     position: fixed;

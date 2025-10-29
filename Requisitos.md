@@ -1,9 +1,9 @@
 Se requiere desarrollar una aplicación que permita gestionar las notas de las materias de estudiantes. La aplicación debe realizar las siguientes funcionalidades.
 
-- [ ] Se debe consultar, registrar, modificar y eliminar la información de los estudiantes.  
-- [ ] La información que se debe guardar del estudiante es: código, nombre, correo electrónico y programa de formación.  
-- [ ] Se puede modificar la información del estudiante menos el código y siempre que el usuario no tenga notas registradas. De lo contrario no se puede modificar.  
-- [ ] Se puede eliminar un estudiante siempre que no tenga notas registradas. De lo contrario no se puede eliminar.  
+- [x] Se debe consultar, registrar, modificar y eliminar la información de los estudiantes.  
+- [x] La información que se debe guardar del estudiante es: código, nombre, correo electrónico y programa de formación.  
+- [-] Se puede modificar la información del estudiante menos el código y siempre que el usuario no tenga notas registradas. De lo contrario no se puede modificar.  
+- [-] Se puede eliminar un estudiante siempre que no tenga notas registradas. De lo contrario no se puede eliminar.  
     
 - [ ] El sistema debe poder consultar, crear, modificar y eliminar programas de formación.  
 - [x] La información que se debe guardar del programa de formación es: código y nombre.  
@@ -13,8 +13,8 @@ Se requiere desarrollar una aplicación que permita gestionar las notas de las m
     
 - [x] Se debe consultar, registrar, modificar y eliminar la información de las materias asociadas a un programa de formación.  
 - [x] La información que se debe guardar de la materia es: código, nombre y programa de formación.  
-- [ ] Se puede modificar la información de la materia menos el código y siempre que no tenga notas registradas o estudiantes relacionados. De lo contrario no se puede modificar.  
-- [ ] Se puede eliminar una materia siempre que no tenga notas registradas o estudiantes relacionados. De lo contrario no se puede eliminar.
+- [-] Se puede modificar la información de la materia menos el código y siempre que no tenga notas registradas o estudiantes relacionados. De lo contrario no se puede modificar.  
+- [-] Se puede eliminar una materia siempre que no tenga notas registradas o estudiantes relacionados. De lo contrario no se puede eliminar.
 
 - [ ] Se debe consultar, registrar, modificar y eliminar la información de las notas de un estudiante.  
 - [ ] La información que se debe guardar de la nota es: estudiante, materia y la nota. La nota debe ser un número mayor a cero y menor a 5\. Solo puede recibir máximo dos decimales.  
