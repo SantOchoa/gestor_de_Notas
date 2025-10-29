@@ -47,8 +47,7 @@
         >
             <button type="reset">Aceptar</button>
         </form>
-    </div>
-    
+  </div>
     <script src="../public/JS/ventanalogin.js"></script>
 </body>
 </html>

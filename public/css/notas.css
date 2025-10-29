@@ -9,3 +9,99 @@
 .notas:hover{
     background-color: rgb(158, 35, 35);
 }
+.overlay-crear-nota, .overlay-editar-nota, .overlay-deletenota {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1100; /* Por encima del header */
+}
+
+.overlay-content {
+    background-color: white;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.overlay-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid rgb(229, 231, 235);
+}
+
+.overlay-header h1 {
+    margin: 0;
+    font-size: 20px;
+    color: rgb(51, 51, 51);
+    font-weight: 600;
+}
+
+.overlay-crear-nota form, .overlay-editar-nota form , .overlay-deletenota form{
+    background-color: white;
+    padding: 24px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.info-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.info-form label {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.info-form input,
+.info-form select {
+    padding: 8px 12px;
+    border: 1px solid rgb(208, 212, 219);
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.buttons-form {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.buttons-form button {
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.buttons-form button:first-child {
+    background-color: white;
+    border: 1px solid rgb(158, 35, 35);
+    color: rgb(158, 35, 35);
+}
+
+.buttons-form button:last-child {
+    background-color: rgb(158, 35, 35);
+    border: none;
+    color: white;
+}
+
+.buttons-form button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

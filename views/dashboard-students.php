@@ -130,26 +130,69 @@ $students = $studentController->getStudent();
         </div>
     </div>
     <div class="overlay-crear-estudiante">
-        <div>
-            <h1></h1>
+        <div class="overlay-content">
+            <div class="overlay-header">
+                <h1>Nuevo Estudiante</h1>
+            </div>
+            <form action="">
+                <div class="info-form">
+                    <label for="studentName">Nombre Completo</label>
+                    <input type="text" name="studentName" id="studentName" placeholder="Ingrese el nombre completo del estudiante">
+                    <label for="email">Correo Electronico</label>
+                    <input type="email" name="email" id="email" placeholder="correo@example.com">
+                    <label for="studentprogram">Programa de Formación</label>
+                    <select name="studentprogram" id="studentprogram">
+                        <!--Hacer los programas de formacion-->
+                    </select>
+                </div>
+                <div class="buttons-form">
+                    <button>Cancelar</button>
+                    <button type="submit">Crear</button>
+                </div>
+            </form>
         </div>
-        <form action="">
-            <div class="info-form">
-                <label for="studentName">Nombre Completo</label>
-                <input type="text" name="studentName" id="studentName" placeholder="Ingrese el nombre completo del estudiante">
-                <label for="email">Correo Electronico</label>
-                <input type="email" name="email" id="email" placeholder="correo@example.com">
-                <label for="studentprogram">Programa de Formación</label>
-                <select name="studentprogram" id="studentprogram">
-                    <!--Hacer los programas de formacion-->
-                </select>
+    </div>
+    <div class="overlay-editar-estudiante">
+        <div class="overlay-content">
+            <div class="overlay-header">
+                <h1>Editar Estudiante</h1>
             </div>
-            <div class="buttons-form">
-                <button>Cancelar</button>
-                <button type="submit">Crear</button>
+            <form action="">
+                <div class="info-form">
+                    <label for="studentName">Nombre Completo</label>
+                    <input type="text" name="studentName" id="studentName" placeholder="Ingrese el nombre completo del estudiante">
+                    <label for="email">Correo Electronico</label>
+                    <input type="email" name="email" id="email" placeholder="correo@example.com">
+                    <label for="studentprogram">Programa de Formación</label>
+                    <select name="studentprogram" id="studentprogram">
+                        <!--Hacer los programas de formacion-->
+                    </select>
+                </div>
+                <div class="buttons-form">
+                    <button>Cancelar</button>
+                    <button type="submit">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="overlay-deletestudent">
+        <div class="overlay-content">
+            <div class="overlay-header">
+                <h1>Eliminar</h1>
             </div>
-        </form>
+            <form action="">
+                <div class="info-form">
+                    <p>¿Esta seguro de eliminar el estudiante?</p>
+                </div>
+                <div class="buttons-form">
+                    <button>Cancelar</button>
+                    <button type="submit">Connfirmar</button>
+                </div>
+            </form>
+        </div>
     </div>
     <script src="../public/JS/overlay-crear-estudiante.js"></script>
+    <script src="../public/JS/overlay-editar-estudiante.js"></script>
+    <script src="../public/JS/overlay-deletestudent.js"></script>
 </body>
 </html>
