@@ -78,7 +78,7 @@
                     <th class="accions">Acciones</th>
                 </thead>
                 <tbody>
-                    
+
                 <?php
                 echo '<tr><td>EST001</td><td>Juan Pérez</td>
                 <td class="actions"><button class="btn edit">
@@ -108,6 +108,34 @@
         </form>
     </div>
 </div>
+
+<div id="modal-editar" class="modal">
+    <div class="modal-content">
+        <span class="close" id="cerrarEditar">&times;</span>
+        <h2>Editar Programa</h2>
+        <form id="form-editar">
+            <label for="editarNombre">Nombre del Programa</label>
+            <input type="text" id="editarNombre" name="editarNombre" required>
+            <div class="modal-buttons">
+                <button type="button" id="cancelarEditar">Cancelar</button>
+                <button type="submit" id="actualizarPrograma">Actualizar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="confirmacionEliminar" class="confirmacion-eliminar">
+  <div class="confirmacion-contenido">
+    <h3>¿Eliminar programa?</h3>
+    <p>Esta acción no se puede deshacer.</p>
+    <div class="botones-confirmacion">
+      <button id="cancelarEliminar" class="btn-cancelar">Cancelar</button>
+      <button id="continuarEliminar" class="btn-continuar">Eliminar</button>
+    </div>
+  </div>
+</div>
+
+
 
 <script src="../public/js/ventanaprograma.js"></script>
 </body>
