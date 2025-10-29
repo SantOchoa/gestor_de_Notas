@@ -19,7 +19,7 @@
         <div class="container-user-accions">
             <div class="container-user-info">
                 <img src="../public/images/user-log.png" alt="user">
-                <!-- Debe Mostrar el nombre del usuario-->
+      
                 <p>Usuario</p>
             </div>
             <button class="container-log-out">
@@ -78,7 +78,7 @@
                     <th class="accions">Acciones</th>
                 </thead>
                 <tbody>
-                <!--Informacion en php-->
+                    
                 <?php
                 echo '<tr><td>EST001</td><td>Juan Pérez</td>
                 <td class="actions"><button class="btn edit">
@@ -93,5 +93,25 @@
             </table>
         </div>
     </div>
+
+<div id="modal-programa" class="modal">
+    <div class="modal-content">
+        <span class="close" id="cerrarModal">&times;</span>
+        <h2>Nuevo Programa</h2>
+        <form id="form-programa">
+            <label for="nombrePrograma">Nombre del Programa</label>
+            <input type="text" id="nombrePrograma" name="nombrePrograma" placeholder="Ingrese el nombre del programa" required>
+            <div class="modal-buttons">
+                <button type="button" id="cancelarModal">Cancelar</button>
+                <button type="submit" id="crearPrograma">Crear</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="../public/js/ventanaprograma.js"></script>
+</body>
+</html>
+
 </body>
 </html>

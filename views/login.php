@@ -48,6 +48,6 @@
             <button type="reset">Aceptar</button>
         </form>
     </div>
-    <script src="../public/JS/ventanasemergentes.js"></script>
+    <script src="../public/JS/ventanalogin.js"></script>
 </body>
 </html>
