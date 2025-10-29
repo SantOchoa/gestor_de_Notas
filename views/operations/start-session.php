@@ -1,12 +1,12 @@
 <?php
-require __DIR__ . "/../../controllers/student_controller.php";
-use Controllers\StudentController;
+require __DIR__ . "/../../controllers/user-controller.php";
+use Controllers\UsersController;
 
-$studentController = new StudentController();
+$userController = new UsersController();
 
-$student = $studentController->validarUsuario($_POST);
+$user = $userController->validarUsuario($_POST);
 
-if(!empty($student)){
+if(!empty($user)){
     header("Location: ../dashboard-programs.php");
 }
 

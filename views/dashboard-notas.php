@@ -22,10 +22,12 @@
                 <!-- Debe Mostrar el nombre del usuario-->
                 <p>Usuario</p>
             </div>
-            <button class="container-log-out">
-                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M481-120v-60h299v-600H481v-60h299q24 0 42 18t18 42v600q0 24-18 42t-42 18H481Zm-55-185-43-43 102-102H120v-60h363L381-612l43-43 176 176-174 174Z"/></svg>
-                <p>Cerrar Sesión</p>
-            </button>
+           <a href="operations/log-out.php">
+                <button class="container-log-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M481-120v-60h299v-600H481v-60h299q24 0 42 18t18 42v600q0 24-18 42t-42 18H481Zm-55-185-43-43 102-102H120v-60h363L381-612l43-43 176 176-174 174Z"/></svg>
+                    <p>Cerrar Sesión</p>
+                </button>
+            </a>
         </div>
     </header>
     <div class="nav-info">
