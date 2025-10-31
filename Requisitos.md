@@ -27,8 +27,8 @@ Se requiere desarrollar una aplicación que permita gestionar las notas de las m
 - [-] Se debe visualizar todas las materias registradas por programa de formación.  
 - [x] Se debe visualizar todos los estudiantes registrados en un programa de formación.  
 - [x] Se debe visualizar todos los estudiantes registrados por materia junto con su nota promedio en cada materia..  
-- [ ] Se debe visualizar todas las materias registradas a un estudiante junto con su nota promedio.  
-- [ ] Se debe visualizar todas las notas registradas de un estudiante por materia.  
+- [x] Se debe visualizar todas las materias registradas a un estudiante junto con su nota promedio.  
+- [x] Se debe visualizar todas las notas registradas de un estudiante por materia.  
 - [x] Todas las operaciones de eliminación deben tener una confirmación de continuar o no en el proceso. Si el usuario continua se procede a eliminar de lo contrario no.  
 - [x] **El usuario puede navegar en cualquier momento a cualquier funcionalidad, no va a interactuar con la base de datos directamente, por lo que se recomienda que las interfaces deben ser fáciles de usar frente al usuario.**  
     

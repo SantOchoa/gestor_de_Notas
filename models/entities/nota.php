@@ -139,6 +139,59 @@ class Nota{
         }
         return $rows;
     }
+    public function allByStudent($student_codigo)
+    {
+        $sql = Notasql::selectAllByStudent();
+        $db = new GestorNotasDB(); 
+        $db->setIsSqlSelect(true);
+        
+        $result = $db->execSQL(
+            $sql, 
+            "i", 
+            $student_codigo
+        ); 
+        
+        $rows = [];
+        if ($result->num_rows > 0) {
+            while ($item = $result->fetch_assoc()) {
+                
+                $nota = new Nota(); 
+                $nota->set('studentCode', $item['estudiante']);
+                $nota->set('materiaCode', $item['materia']);
+                $nota->set('actividad', $item['actividad']);
+                $nota->set('nota', $item['nota']);
+                array_push($rows, $nota);
+            }
+        }
+        return $rows;
+    }
+    public function allByMateriaStudent($student_codigo, $materia_codigo)
+    {
+        $sql = Notasql::selectAllByMateriaStudent();
+        $db = new GestorNotasDB(); 
+        $db->setIsSqlSelect(true);
+        
+        $result = $db->execSQL(
+            $sql, 
+            "ii", 
+            $student_codigo,
+            $materia_codigo
+        ); 
+        
+        $rows = [];
+        if ($result->num_rows > 0) {
+            while ($item = $result->fetch_assoc()) {
+                
+                $nota = new Nota(); 
+                $nota->set('studentCode', $item['estudiante']);
+                $nota->set('materiaCode', $item['materia']);
+                $nota->set('actividad', $item['actividad']);
+                $nota->set('nota', $item['nota']);
+                array_push($rows, $nota);
+            }
+        }
+        return $rows;
+    }
 }
 
 ?>

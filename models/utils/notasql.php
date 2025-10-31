@@ -23,6 +23,12 @@ class Notasql {
     public static function selectAllByMateria(){
         return "select * from notas where materia = ?";
     }
+    public static function selectAllByStudent(){
+        return "select * from notas where estudiante = ?";
+    }
+    public static function selectAllByMateriaStudent(){
+        return "select * from notas where estudiante = ? and materia = ?";
+    }
 }   
 
 ?>

@@ -84,11 +84,21 @@ $notaController = new NotaController();
 $materia_filtro_id = null;
 $notas = []; 
 
-if (isset($_GET['materia_filtro']) && !empty($_GET['materia_filtro'])) {
-    $materia_filtro_id = $_GET['materia_filtro'];
+if (isset($_GET['materia_filtro']) && !empty($_GET['materia_filtro']) && isset($_GET['student_filtro']) && !empty($_GET['student_filtro'])) {
+    $materia_filtro = $_GET['materia_filtro'];
+    $student_filtro = $_GET['student_filtro'];
     
-    $notas = $notaController->getAllNotasPorMateria($materia_filtro_id);
-} else {
+    $notas = $notaController->getAllNotasPorMateriaStudent( $student_filtro,$materia_filtro);
+} elseif (isset($_GET['student_filtro']) && !empty($_GET['student_filtro'])){
+    $student_filtro = $_GET['student_filtro'];
+    
+    $notas = $notaController->getAllNotasPorStudent($student_filtro);
+}elseif (isset($_GET['materia_filtro']) && !empty($_GET['materia_filtro'])) {
+    $materia_filtro = $_GET['materia_filtro'];
+    
+    $notas = $notaController->getAllNotasPorMateria($materia_filtro);
+}
+else {
     $notas = $notaController->getAllNotas();
 }
 ?>
@@ -176,6 +186,18 @@ if (isset($_GET['materia_filtro']) && !empty($_GET['materia_filtro'])) {
                         $selected = ($materia->get('cod') == $materia_filtro_id) ? 'selected' : '';
                         echo '<option value="' . htmlspecialchars($materia->get('cod')) . '" ' . $selected . '>';
                         echo htmlspecialchars($materia->get('name'));
+                        echo '</option>';
+                    }
+                    ?>
+                </select>
+                <label for="student_filtro">Filtrar por Materia:</label>
+                <select name="student_filtro" id="student_filtro">
+                    <option value="">-- Mostrar Todas --</option>
+                    <?php
+                    foreach ($students as $student) {
+                        $selected = ($student->get('cod') == $student_filtro) ? 'selected' : '';
+                        echo '<option value="' . htmlspecialchars($student->get('codigo')) . '" ' . $selected . '>';
+                        echo htmlspecialchars($student->get('nombre'));
                         echo '</option>';
                     }
                     ?>

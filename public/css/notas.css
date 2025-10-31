@@ -224,12 +224,12 @@ select{
 .filtro-container button {
     padding: 8px 18px;
     font-size: 1em;
-    background-color: blue;
+    background-color: #e63946;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 .filtro-container button:hover {
-    background-color: #0056b3;
+    background-color: #c92836;
 }

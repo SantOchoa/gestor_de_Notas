@@ -49,6 +49,17 @@ class NotaController
         $nota = new Nota();
         return $nota->allByMateria($materia_codigo);
     }
+
+    public function getAllNotasPorStudent($student_codigo)
+    {
+        $nota = new Nota();
+        return $nota->allByStudent($student_codigo);
+    }
+    public function getAllNotasPorMateriaStudent($student_codigo, $materia_codigo)
+    {
+        $nota = new Nota();
+        return $nota->allByMateriaStudent($student_codigo, $materia_codigo);
+    }
         
 }
 ?>
