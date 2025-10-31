@@ -81,7 +81,7 @@ $materias = $materias->getAllMaterias();
 
 $notaController = new NotaController();
 
-$materia_filtro_id = null;
+$materia_filtro = null;
 $notas = []; 
 
 if (isset($_GET['materia_filtro']) && !empty($_GET['materia_filtro']) && isset($_GET['student_filtro']) && !empty($_GET['student_filtro'])) {
@@ -183,14 +183,14 @@ else {
                     <option value="">-- Mostrar Todas --</option>
                     <?php
                     foreach ($materias as $materia) {
-                        $selected = ($materia->get('cod') == $materia_filtro_id) ? 'selected' : '';
+                        $selected = ($materia->get('cod') == $materia_filtro) ? 'selected' : '';
                         echo '<option value="' . htmlspecialchars($materia->get('cod')) . '" ' . $selected . '>';
                         echo htmlspecialchars($materia->get('name'));
                         echo '</option>';
                     }
                     ?>
                 </select>
-                <label for="student_filtro">Filtrar por Materia:</label>
+                <label for="student_filtro">Filtrar por Estudiante:</label>
                 <select name="student_filtro" id="student_filtro">
                     <option value="">-- Mostrar Todas --</option>
                     <?php
@@ -237,7 +237,7 @@ else {
                             }
                         } else {
                             echo '<tr><td colspan="6">No hay notas registradas';
-                            if ($materia_filtro_id) {
+                            if ($materia_filtro) {
                                 echo ' para esta materia.';
                             } else {
                                 echo '.';
