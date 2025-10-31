@@ -20,5 +20,8 @@ class Materiasql{
     public static function delete(){
         return "delete from materias where codigo=?";
     }
+    public static function selectAllByPrograma(){
+        return "select * from materias where programa = ?";
+    }
 }
 ?>

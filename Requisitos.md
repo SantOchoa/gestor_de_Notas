@@ -24,7 +24,7 @@ Se requiere desarrollar una aplicación que permita gestionar las notas de las m
 - [x] Las notas solo se registran a materias registradas al programa, no se puede registrar notas de materias que no estén en el programa.  
     
 - [x] Se debe visualizar los programas de formación registrados.  
-- [-] Se debe visualizar todas las materias registradas por programa de formación.  
+- [x] Se debe visualizar todas las materias registradas por programa de formación.  
 - [x] Se debe visualizar todos los estudiantes registrados en un programa de formación.  
 - [x] Se debe visualizar todos los estudiantes registrados por materia junto con su nota promedio en cada materia..  
 - [x] Se debe visualizar todas las materias registradas a un estudiante junto con su nota promedio.  

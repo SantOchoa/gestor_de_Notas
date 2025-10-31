@@ -128,6 +128,28 @@ class Materia{
         );
         return $result;
     }
+    public function allByPrograma($programa_codigo)
+    {
+        $sql = MateriaSQL::selectAllByPrograma();
+        $db = new GestorNotasDB(); 
+        $db->setIsSqlSelect(true);
+        $result = $db->execSQL(
+            $sql, 
+            "i",
+            $programa_codigo
+        ); 
+        $rows = [];
+        if ($result->num_rows > 0) {
+            while ($item = $result->fetch_assoc()) {
+                $materia = new Materia();
+                $materia->set('cod', $item['codigo']);
+                $materia->set('name', $item['nombre']);
+                $materia->set('programaCode', $item['programa']);
+                array_push($rows, $materia);
+            }
+        }
+        return $rows;
+    }
 
 }
 ?>

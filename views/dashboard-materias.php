@@ -9,7 +9,19 @@
     $materias = $materiaController->getAllMaterias();
 
     $programController = new ProgramController();
-    $programs = $programController->getPrograms();
+    $programas = $programController->getPrograms();
+
+    $program_filtro = null;
+    $materias = []; 
+
+    if (isset($_GET['program_filtro']) && !empty($_GET['program_filtro'])) {
+        $program_filtro = $_GET['program_filtro'];
+
+        $materias = $materiaController->getAllMateriaPrograma($program_filtro);
+    }
+    else {
+        $materias = $materiaController->getAllMaterias();
+    }
 
 ?>
 <!DOCTYPE html>
@@ -88,13 +100,23 @@
                 </button>
             </div>
             <div class="filter">
+                <form action="dashboard-materias.php" method="GET" class="filtro-container">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M440-160q-17 0-28.5-11.5T400-200v-240L168-736q-15-20-4.5-42t36.5-22h560q26 0 36.5 22t-4.5 42L560-440v240q0 17-11.5 28.5T520-160h-80Zm40-308 198-252H282l198 252Zm0 0Z"/></svg>
                 <h2>Filtar por Programa:</h2>
-                <select name="program-select" id="program-select">
-                    <option value="all">Todos los programas</option>
-                    <!--Aqui se debe poner el for para todos los programas existententes-->
-                    
+                <select name="program_filtro" id="program_filtro">
+                    <option value="">-- Mostrar Todas --</option>
+                    <?php
+                    foreach ($programas as $programa) {
+                        $selected = ($programa->get('codigo') == $program_filtro) ? 'selected' : '';
+                        echo '<option value="' . htmlspecialchars($programa->get('codigo')) . '" ' . $selected . '>';
+                        echo htmlspecialchars($programa->get('nombre'));
+                        echo '</option>';
+                    }
+                    ?>
                 </select>
+                <button type="submit">Filtrar</button>
+            </form>
+                
             </div>
             <table>
                 <thead>
@@ -105,6 +127,7 @@
                 </thead>
                 <tbody>
                     <?php
+                    if (count($materias) > 0) {
                         foreach ($materias as $materia) {
                             echo '<tr>';
                             echo '  <td>' . $materia->get('cod') . '</td>';
@@ -118,9 +141,15 @@
                             echo '</button></td></tr>';
                             echo '</tr>';
                         }
-                        if (count($materias) == 0) {
-                            echo '<div>No hay materias registradas</div>';
+                    }else {
+                        echo '<tr><td colspan="6">No hay notas registradas';
+                        if ($program_filtro) {
+                            echo ' para esta materia.';
+                        } else {
+                            echo '.';
                         }
+                        echo '</td></tr>';
+                    }
                     ?>
                 </tbody>
                 
@@ -141,7 +170,7 @@
                 <select name="programaSelect" id="programaSelect" required>
                     <option value="">Seleccione un programa</option>
                     <?php
-                    foreach ($programs as $program) {
+                    foreach ($programas as $program) {
                         echo '<option value="' . $program->get('codigo') . '">' . $program->get('nombre') . '</option>';
                     }
                     ?>
@@ -164,7 +193,7 @@
                 <label for="programaSelect">Programa de Formación</label>
                 <select name="programaSelect" id="programaSelect"  required>
                     <?php
-                    foreach ($programs as $program) {
+                    foreach ($programas as $program) {
                         echo '<option value="' . $program->get('codigo') . '">' . $program->get('nombre') . '</option>';
                     }
                     ?>
