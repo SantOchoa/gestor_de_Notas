@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "/../controllers/student-controller.php";
+require_once __DIR__ . "/../controllers/student-controller.php";
 require_once __DIR__."/../controllers/program-controller.php";
 
 
@@ -7,7 +7,7 @@ use Controllers\StudentController;
 use Controllers\ProgramController;
 
 $studentController = new StudentController();
-$students = $studentController->getStudent();
+$students = $studentController->getStudents();
 $programController = new ProgramController();
 $programs = $programController->getPrograms();
 ?>
@@ -33,7 +33,7 @@ $programs = $programController->getPrograms();
             <div class="container-user-info">
                 <img src="../public/images/user-log.png" alt="user">
                 <!-- Debe Mostrar el nombre del usuario-->
-                <p>Usuario</p>
+                <p>Jhoan</p>
             </div>
            <a href="operations/log-out.php">
                 <button class="container-log-out">

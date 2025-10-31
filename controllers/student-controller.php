@@ -2,8 +2,8 @@
 
 namespace Controllers;
 
-require __DIR__ . "/../models/entities/student.php";
-require __DIR__ . "/session-controller.php";
+require_once __DIR__ . "/../models/entities/student.php";
+require_once __DIR__ . "/session-controller.php";
 use Controllers\SessionController;
 use Models\Entities\Student;
 
@@ -11,7 +11,7 @@ class StudentController
 {
 
 
-    public function getStudent()
+    public function getStudents()
     {
         $student = new Student();
         return $student->all();

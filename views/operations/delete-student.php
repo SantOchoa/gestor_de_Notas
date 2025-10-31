@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "/../../controllers/student-controller.php";
+require_once __DIR__ . "/../../controllers/student-controller.php";
 use Controllers\StudentController;
 
 $studentController = new StudentController();

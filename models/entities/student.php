@@ -91,7 +91,7 @@ class Student{
         );
         return $result;
     }
-    public function getByCode($cod)
+    public function getNameByCode($cod)
     {
         $nombreP = "";
         $sql = Studentsql::selectByCode();
@@ -116,6 +116,30 @@ class Student{
         }
         
         return $nombreP;
+    }
+    public function getByCode($cod)
+    {
+        $sql = Studentsql::selectByCode();
+        $db = new GestorNotasDB();
+        $db->setIsSqlSelect(true);
+        $result = $db->execSQL(
+            $sql,
+            "i",
+            $cod
+        );
+        $student = null;
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $student = new Student();
+                $student->set('codigo', $row['codigo']);
+                $student->set('nombre', $row['nombre']);
+                $student->set('email', $row['email']);
+                $student->set('programaCode', $row['programa']);
+                break;
+            }
+        }
+        
+        return $student;
     }
     public function getByName($name)
     {

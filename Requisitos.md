@@ -17,16 +17,16 @@ Se requiere desarrollar una aplicación que permita gestionar las notas de las m
 - [-] Se puede eliminar una materia siempre que no tenga notas registradas o estudiantes relacionados. De lo contrario no se puede eliminar.
 
 - [x] Se debe consultar, registrar, modificar y eliminar la información de las notas de un estudiante.  
-- [-] La información que se debe guardar de la nota es: estudiante, materia y la nota. La nota debe ser un número mayor a cero y menor a 5\. Solo puede recibir máximo dos decimales.  
+- [x] La información que se debe guardar de la nota es: estudiante, materia y la nota. La nota debe ser un número mayor a cero y menor a 5\. Solo puede recibir máximo dos decimales.  
 - [x] Se puede cambiar la nota de un estudiante, pero solo la nota.  
-- [ ] Se pueden eliminar las notas de un estudiante.  
+- [x] Se pueden eliminar las notas de un estudiante.  
   Un estudiante puede tener varias notas en una materia. por lo que la nota definitiva debe ser el promedio de las notas registradas. Si no hay notas el promedio debe ser cero. El promedio debe tener máximo dos decimales.  
-- [ ] Las notas solo se registran a materias registradas al programa, no se puede registrar notas de materias que no estén en el programa.  
+- [x] Las notas solo se registran a materias registradas al programa, no se puede registrar notas de materias que no estén en el programa.  
     
 - [x] Se debe visualizar los programas de formación registrados.  
 - [-] Se debe visualizar todas las materias registradas por programa de formación.  
 - [x] Se debe visualizar todos los estudiantes registrados en un programa de formación.  
-- [ ] Se debe visualizar todos los estudiantes registrados por materia junto con su nota promedio en cada materia..  
+- [x] Se debe visualizar todos los estudiantes registrados por materia junto con su nota promedio en cada materia..  
 - [ ] Se debe visualizar todas las materias registradas a un estudiante junto con su nota promedio.  
 - [ ] Se debe visualizar todas las notas registradas de un estudiante por materia.  
 - [x] Todas las operaciones de eliminación deben tener una confirmación de continuar o no en el proceso. Si el usuario continua se procede a eliminar de lo contrario no.  

@@ -45,7 +45,7 @@ class Materia{
         }
         return $rows;
     }
-    public function getByCode($cod)
+    public function getNameByCode($cod)
     {
         $nombreP = "";
         $sql = MateriaSQL::selectByCode();
@@ -68,6 +68,28 @@ class Materia{
             }
         }
         return $nombreP;
+    }
+    public function getByCode($cod)
+    {
+        $sql = MateriaSQL::selectByCode();
+        $db = new GestorNotasDB();
+        $db->setIsSqlSelect(true);
+        $result = $db->execSQL(
+            $sql,
+            "i",
+            $cod
+        );
+        $materia = null;
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $materia = new Materia();
+                $materia->set('cod', $row['codigo']);
+                $materia->set('name', $row['nombre']);
+                $materia->set('programaCode', $row['programa']);
+                break;
+            }
+        }
+        return $materia;
     }
     public function save()
     {

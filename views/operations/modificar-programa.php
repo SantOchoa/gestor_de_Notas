@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "/../../controllers/program-controller.php";
+require_once __DIR__ . "/../../controllers/program-controller.php";
 
 use Controllers\ProgramController;
 

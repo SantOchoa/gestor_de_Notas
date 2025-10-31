@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "/../../controllers/user-controller.php";
+require_once __DIR__ . "/../../controllers/user-controller.php";
 use Controllers\UsersController;
 
 $userController = new UsersController();

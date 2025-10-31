@@ -15,7 +15,13 @@ class Notasql {
         return "update notas set nota=? where estudiante=? and actividad=?";
     }
     public static function delete(){
-        return "delete from notas where nota=?";
+        return "delete from notas where estudiante=?";
+    }
+    public static function getPromedioByStudent(){
+        return "select AVG(nota) as promedio from notas WHERE estudiante=? and materia=?";
+    }
+    public static function selectAllByMateria(){
+        return "select * from notas where materia = ?";
     }
 }   
 

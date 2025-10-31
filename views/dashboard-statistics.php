@@ -20,7 +20,7 @@
             <div class="container-user-info">
                 <img src="../public/images/user-log.png" alt="user">
                 <!-- Debe Mostrar el nombre del usuario-->
-                <p>Usuario</p>
+                <p>Jhoan</p>
             </div>
             <a href="operations/log-out.php">
                 <button class="container-log-out">

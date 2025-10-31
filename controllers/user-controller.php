@@ -2,8 +2,8 @@
 
 namespace Controllers;
 
-require __DIR__ . "/../models/entities/user.php";
-require __DIR__ . "/session-controller.php";
+require_once __DIR__ . "/../models/entities/user.php";
+require_once __DIR__ . "/session-controller.php";
 use Controllers\SessionController;
 use Models\Entities\User;
 

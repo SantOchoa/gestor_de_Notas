@@ -1,5 +1,5 @@
 <?php
-require __DIR__."/../controllers/program-controller.php";
+require_once __DIR__."/../controllers/program-controller.php";
 
 use Controllers\ProgramController;
 use Models\Entities\Programa;
@@ -35,7 +35,7 @@ $programs=$programController->getPrograms();
             <div class="container-user-info">
                 <img src="../public/images/user-log.png" alt="user">
       
-                <p>Usuario</p>
+                <p>Jhoan</p>
             </div>
             <a href="operations/log-out.php">
                 <button class="container-log-out">
