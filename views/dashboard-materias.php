@@ -12,10 +12,6 @@
     $programs = $programController->getPrograms();
 
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>

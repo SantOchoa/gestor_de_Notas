@@ -101,8 +101,6 @@ if (isset($_GET['materia_filtro']) && !empty($_GET['materia_filtro'])) {
     <link rel="stylesheet" href="../public/css/notas.css">
     <link rel="icon" href="../public/images/logo-gestor-white.png">
     <title>NotasApp-Notas</title>
-
-   
     </head>
 <body>
     <header>
