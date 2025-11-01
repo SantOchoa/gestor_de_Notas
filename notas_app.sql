@@ -114,9 +114,9 @@ INSERT INTO `programas` (`codigo`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `usuario` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user` varchar(30) NOT NULL,
+  `userName` varchar(30) NOT NULL,
   `password` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -125,7 +125,7 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`user`, `password`) VALUES
+INSERT INTO `users` (`userName`, `password`) VALUES
 ('Jhoan', 'elmejorprofesor');
 
 
