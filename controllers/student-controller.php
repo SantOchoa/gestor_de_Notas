@@ -46,4 +46,9 @@ class StudentController
         $student->set('codigo', $request['codigoStudent']);
         return $student->delete();
     }
+    public function getAllStudentsByPrograma($programa_codigo)
+    {
+        $student = new Student();
+        return $student->allByPrograma($programa_codigo);
+    }
 }

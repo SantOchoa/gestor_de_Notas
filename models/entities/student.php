@@ -166,5 +166,29 @@ class Student{
         
         return $codS;
     }
+    public function allByPrograma($programa_codigo)
+    {
+        $sql = StudentSQL::selectAllByPrograma();
+        $db = new GestorNotasDB(); 
+        $db->setIsSqlSelect(true);
+        $result = $db->execSQL(
+            $sql, 
+            "i",
+            $programa_codigo
+        ); 
+        $rows = [];
+        if ($result->num_rows > 0) {
+            while ($item = $result->fetch_assoc()) {
+                $student = new Student();
+                $student->set('codigo', $item['codigo']);
+                $student->set('nombre', $item['nombre']);
+                $student->set('email', $item['email']);
+                $student->set('programaCode', $item['programa']);
+                array_push($rows, $student);
+            }
+        }
+        return $rows;
+    }
+
 }
 ?>

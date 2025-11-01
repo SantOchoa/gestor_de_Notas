@@ -24,6 +24,9 @@ class Studentsql{
     public static function delete(){
         return "delete from estudiantes where codigo=?";
     }
+     public static function selectAllByPrograma(){
+        return "select * from estudiantes where programa = ?";
+    }
 
 }
 ?>
