@@ -207,7 +207,7 @@
             <div class="botones-confirmacion">
             <button id="cancelarEliminar" class="btn-cancelar">Cancelar</button>
             <form id="form-eliminar" action="operations/delete-materia.php" method="post">
-                <input type="text" id="codigoEli" name="codigoEli" placeholder="Ingrese el código del programa" required>
+                <input type="hidden" id="codigoEli" name="codigoEli" placeholder="Ingrese el código del programa" required>
                 <button id="continuarEliminar" class="btn-continuar" type="submit">Eliminar</button>
             </form>
             
