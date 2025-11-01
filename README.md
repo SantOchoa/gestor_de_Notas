@@ -1,7 +1,7 @@
 # 📝 Gestor de Notas
 
 [✨ Ver mi diseño en Figma](https://crow-ginger-32087637.figma.site)
-
+![Logo de la empresa](image.png)
 
 ## 🚀 Resumen corto
 
