@@ -1,5 +1,5 @@
 <?php
-require __DIR__."/../controllers/program-controller.php";
+require_once __DIR__."/../controllers/program-controller.php";
 
 use Controllers\ProgramController;
 use Models\Entities\Programa;
@@ -35,7 +35,7 @@ $programs=$programController->getPrograms();
             <div class="container-user-info">
                 <img src="../public/images/user-log.png" alt="user">
       
-                <p>Usuario</p>
+                <p>Jhoan</p>
             </div>
             <a href="operations/log-out.php">
                 <button class="container-log-out">
@@ -70,12 +70,6 @@ $programs=$programController->getPrograms();
                     <div class="button notas">
                         <img src="../public/images/logo-gestor-red.png" alt="Notas">
                         <p>Notas</p>
-                    </div>
-                </a>
-                <a href="dashboard-statistics.php">
-                    <div class="button statistics">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M180-120q-24 0-42-18t-18-42v-660h60v660h660v60H180Zm75-135v-334h119v334H255Zm198 0v-540h119v540H453Zm194 0v-170h119v170H647Z"/></svg>
-                        <p>Reporte</p>
                     </div>
                 </a>
             </nav>
@@ -157,7 +151,10 @@ $programs=$programController->getPrograms();
     <p>Esta acción no se puede deshacer.</p>
     <div class="botones-confirmacion">
       <button id="cancelarEliminar" class="btn-cancelar">Cancelar</button>
-      <button id="continuarEliminar" class="btn-continuar">Eliminar</button>
+      <form action="operations/delete-program.php" method="post">
+        <input type="hidden" id="codigoProgramaEliminar" name="codigoPrograma" required>
+        <button id="continuarEliminar" class="btn-continuar" type="submit">Eliminar</button>
+      </form>
     </div>
   </div>
 </div>

@@ -2,8 +2,8 @@
 
 namespace Controllers;
 
-require __DIR__ . "/../models/entities/student.php";
-require __DIR__ . "/session-controller.php";
+require_once __DIR__ . "/../models/entities/student.php";
+require_once __DIR__ . "/session-controller.php";
 use Controllers\SessionController;
 use Models\Entities\Student;
 
@@ -11,46 +11,44 @@ class StudentController
 {
 
 
-    public function getStudent()
+    public function getStudents()
     {
-        $user = new Student();
-        return $user->all();
+        $student = new Student();
+        return $student->all();
     }
 
     public function saveNewStudent($request)
     {
-        if (empty($request['user']) || empty($request['pwd'])) {
-            return false;
-        }
-        $user = new Student();
-        $user->set('userName', $request['user']);
-        $user->set('password', $request['pwd']);
-        return $user->save();
+        
+        $student = new Student();
+        $student->set('codigo', $request['codigoStudent']);
+        $student->set('nombre', $request['nombreStudent']);
+        $student->set('email', $request['emailStudent']);
+        $student->set('programaCode', $request['programaSelect']);
+        return $student->save();
     }
 
     public function updateStudent($request)
     {
-        if (
-            empty($request['id'])
-            || empty($request['user'])
-            || empty($request['pwd'])
-        ) {
-            return false;
-        }
-        $user = new Student();
-        $user->set('userName', $request['user']);
-        $user->set('password', $request['pwd']);
-        $user->set('id', $request['id']);
-        return $user->update();
+        $student = new Student();
+        $student = new Student();
+        $student->set('codigo', $request['codigoStudent']);
+        $student->set('nombre', $request['nombreStudent']);
+        $student->set('email', $request['emailStudent']);
+        $student->set('programaCode', $request['programaSelect']);
+        return $student->update();
     }
 
     public function deleteStudent($request)
     {
-        if (empty($request['id'])) {
-            return false;
-        }
-        $user = new Student();
-        $user->set('id', $request['id']);
-        return $user->delete();
+
+        $student = new Student();
+        $student->set('codigo', $request['codigoStudent']);
+        return $student->delete();
+    }
+    public function getAllStudentsByPrograma($programa_codigo)
+    {
+        $student = new Student();
+        return $student->allByPrograma($programa_codigo);
     }
 }

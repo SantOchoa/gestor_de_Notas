@@ -1,12 +1,28 @@
 <?php
-require __DIR__ . "/../controllers/student-controller.php";
+require_once __DIR__ . "/../controllers/student-controller.php";
+require_once __DIR__."/../controllers/program-controller.php";
 
 
 use Controllers\StudentController;
-
+use Controllers\ProgramController;
 
 $studentController = new StudentController();
-$students = $studentController->getStudent();
+$students = $studentController->getStudents();
+$programController = new ProgramController();
+$programas = $programController->getPrograms();
+
+$program_filtro = null;
+$students = []; 
+
+    if (isset($_GET['program_filtro']) && !empty($_GET['program_filtro'])) {
+        $program_filtro = $_GET['program_filtro'];
+
+        $students = $studentController->getAllStudentsByPrograma($program_filtro);
+    }
+    else {
+        $students = $studentController->getStudents();
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,7 +32,7 @@ $students = $studentController->getStudent();
     <link rel="stylesheet" href="../public/css/dashboards.css">
     <link rel="stylesheet" href="../public/css/student.css">
     <link rel="icon" href="../public/images/logo-gestor-white.png">
-    <title>NotasApp-Estudiantes</title>
+    <title>studentsApp-Estudiantes</title>
 </head>
 <body>
     <header>
@@ -30,9 +46,9 @@ $students = $studentController->getStudent();
             <div class="container-user-info">
                 <img src="../public/images/user-log.png" alt="user">
                 <!-- Debe Mostrar el nombre del usuario-->
-                <p>Usuario</p>
+                <p>Jhoan</p>
             </div>
-            <a href="operations/log-out.php">
+           <a href="operations/log-out.php">
                 <button class="container-log-out">
                     <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M481-120v-60h299v-600H481v-60h299q24 0 42 18t18 42v600q0 24-18 42t-42 18H481Zm-55-185-43-43 102-102H120v-60h363L381-612l43-43 176 176-174 174Z"/></svg>
                     <p>Cerrar Sesión</p>
@@ -67,12 +83,6 @@ $students = $studentController->getStudent();
                         <p>Notas</p>
                     </div>
                 </a>
-                <a href="dashboard-statistics.php">
-                    <div class="button statistics">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M180-120q-24 0-42-18t-18-42v-660h60v660h660v60H180Zm75-135v-334h119v334H255Zm198 0v-540h119v540H453Zm194 0v-170h119v170H647Z"/></svg>
-                        <p>Reporte</p>
-                    </div>
-                </a>
             </nav>
         </div>
         <div class="banner-info">
@@ -83,6 +93,23 @@ $students = $studentController->getStudent();
                     <p>Nuevo Estudiante</p>
                 </button>
             </div>
+            <div class="filter">
+                <form action="dashboard-students.php" method="GET" class="filtro-container">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M440-160q-17 0-28.5-11.5T400-200v-240L168-736q-15-20-4.5-42t36.5-22h560q26 0 36.5 22t-4.5 42L560-440v240q0 17-11.5 28.5T520-160h-80Zm40-308 198-252H282l198 252Zm0 0Z"/></svg>
+                <h2>Filtar por Programa:</h2>
+                <select name="program_filtro" id="program_filtro">
+                    <option value="">-- Mostrar Todas --</option>
+                    <?php
+                    foreach ($programas as $programa) {
+                        $selected = ($programa->get('codigo') == $program_filtro) ? 'selected' : '';
+                        echo '<option value="' . htmlspecialchars($programa->get('codigo')) . '" ' . $selected . '>';
+                        echo htmlspecialchars($programa->get('nombre'));
+                        echo '</option>';
+                    }
+                    ?>
+                </select>
+                <button type="submit">Filtrar</button>
+            </form>
             <table>
                 <thead>
                     <th>Código</th>
@@ -117,70 +144,75 @@ $students = $studentController->getStudent();
             </table>
         </div>
     </div>
-    <div class="overlay-crear-estudiante">
-        <div class="overlay-content">
-            <div class="overlay-header">
-                <h1>Nuevo Estudiante</h1>
-            </div>
-            <form action="">
-                <div class="info-form">
-                    <label for="studentName">Nombre Completo</label>
-                    <input type="text" name="studentName" id="studentName" placeholder="Ingrese el nombre completo del estudiante">
-                    <label for="email">Correo Electronico</label>
-                    <input type="email" name="email" id="email" placeholder="correo@example.com">
-                    <label for="studentprogram">Programa de Formación</label>
-                    <select name="studentprogram" id="studentprogram">
-                        <!--Hacer los programas de formacion-->
-                    </select>
-                </div>
-                <div class="buttons-form">
-                    <button>Cancelar</button>
-                    <button type="submit">Crear</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <div class="overlay-editar-estudiante">
-        <div class="overlay-content">
-            <div class="overlay-header">
-                <h1>Editar Estudiante</h1>
-            </div>
-            <form action="">
-                <div class="info-form">
-                    <label for="studentName">Nombre Completo</label>
-                    <input type="text" name="studentName" id="studentName" placeholder="Ingrese el nombre completo del estudiante">
-                    <label for="email">Correo Electronico</label>
-                    <input type="email" name="email" id="email" placeholder="correo@example.com">
-                    <label for="studentprogram">Programa de Formación</label>
-                    <select name="studentprogram" id="studentprogram">
-                        <!--Hacer los programas de formacion-->
-                    </select>
-                </div>
-                <div class="buttons-form">
-                    <button>Cancelar</button>
-                    <button type="submit">Actualizar</button>
+    <div id="modal-student" class="modal">
+        <div class="modal-content">
+            <span class="close" id="cerrarModal">&times;</span>
+            <h2>Nueva student</h2>
+            <form id="form-student" action="operations/crear-student.php" method="POST">
+                <label for="nombreStudent">Nombre del Estudiante</label>
+                <input type="text" id="nombreStudent" name="nombreStudent" placeholder="Ingrese el nombre del Estudiante" required>
+                <label for="codigoStudent">Código del Estudiante</label>
+                <input type="number" id="codigoStudent" name="codigoStudent" placeholder="Ingrese el código del Estudiante" required>
+                <label for="emailStudent">Email del Estudiante</label>
+                <input type="email" id="emailStudent" name="emailStudent" placeholder="Ingrese el email del Estudiante" required>
+                <label for="programaCode">Código del Programa</label>
+                <select name="programaSelect" id="programaSelect" required>
+                    <option value="">Seleccione un programa</option>
+                    <?php
+                    foreach ($programas as $program) {
+                        echo '<option value="' . $program->get('codigo') . '">' . $program->get('nombre') . '</option>';
+                    }
+                    ?>
+                </select>
+                <div class="modal-buttons">
+                    <button type="button" id="cancelarModal">Cancelar</button>
+                    <button type="submit" id="student">Crear</button>
                 </div>
             </form>
         </div>
     </div>
-    <div class="overlay-deletestudent">
-        <div class="overlay-content">
-            <div class="overlay-header">
-                <h1>Eliminar</h1>
-            </div>
-            <form action="">
-                <div class="info-form">
-                    <p>¿Esta seguro de eliminar el estudiante?</p>
-                </div>
-                <div class="buttons-form">
-                    <button>Cancelar</button>
-                    <button type="submit">Connfirmar</button>
+
+    <div id="modal-editar" class="modal">
+        <div class="modal-content">
+            <span class="close" id="cerrarEditar">&times;</span>
+            <h2>Editar student</h2>
+            <form id="form-editar" action="operations/modificar-student.php" method="post">
+                <label for="nombreStudentE">Nombre del Estudiante</label>
+                <input type="text" id="nombreStudentE" name="nombreStudent" placeholder="Ingrese el nombre del Estudiante" required>
+                <input type="hidden" id="codigoStudentE" name="codigoStudent" placeholder="Ingrese el código del Estudiante" required>
+                <label for="emailStudent">Email del Estudiante</label>
+                <input type="email" id="emailStudent" name="emailStudent" placeholder="Ingrese el email del Estudiante" required>
+                <label for="programaCode">Código del Programa</label>
+                <select name="programaSelect" id="programaSelect" required>
+                    <option value="">Seleccione un programa</option>
+                    <?php
+                    foreach ($programas as $program) {
+                        echo '<option value="' . $program->get('codigo') . '">' . $program->get('nombre') . '</option>';
+                    }
+                    ?>
+                </select>
+                <div class="modal-buttons">
+                    <button type="button" id="cancelarEditar">Cancelar</button>
+                    <button type="submit" id="student">Actualizar</button>
                 </div>
             </form>
         </div>
     </div>
-    <script src="../public/JS/overlay-crear-estudiante.js"></script>
-    <script src="../public/JS/overlay-editar-estudiante.js"></script>
-    <script src="../public/JS/overlay-deletestudent.js"></script>
-</body>
+
+    <div id="confirmacionEliminar" class="confirmacion-eliminar">
+        <div class="confirmacion-contenido">
+            <h3>¿Eliminar student?</h3>
+            <p>Esta acción no se puede deshacer.</p>
+            <div class="botones-confirmacion">
+            <button id="cancelarEliminar" class="btn-cancelar">Cancelar</button>
+            <form action="operations/delete-student.php" method="post">
+                <input type="hidden" id="codigoStudentEli" name="codigoStudent" required>
+                <button id="continuarEliminar" class="btn-continuar" type="submit">Eliminar</button>
+            </form>
+            </div>
+        </div>
+    </div>
+    <script src="../public/js/ventanaStudent.js"></script>
+
+    </body>
 </html>

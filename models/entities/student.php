@@ -2,7 +2,7 @@
 namespace Models\Entities;
 
 require_once __DIR__."/../entities/programa.php";
-require __DIR__."/../utils/studentsql.php";
+require_once __DIR__."/../utils/studentsql.php";
 
 use Models\Entities\Programa;
 use Models\Utils\Studentsql;
@@ -71,11 +71,11 @@ class Student{
         $db = new GestorNotasDB();
         $result = $db->execSQL(
             $sql,
-            "ssss",
-            $this->codigo,
+            "sssi",
             $this->nombre,
             $this->email,
-            $this->programaCode
+            $this->programaCode,
+            $this->codigo
         );
         return $result;
     }
@@ -86,12 +86,12 @@ class Student{
         $db = new GestorNotasDB();
         $result = $db->execSQL(
             $sql,
-            "s",
+            "i",
             $this->codigo
         );
         return $result;
     }
-    public function getByCode($cod)
+    public function getNameByCode($cod)
     {
         $nombreP = "";
         $sql = Studentsql::selectByCode();
@@ -117,5 +117,78 @@ class Student{
         
         return $nombreP;
     }
+    public function getByCode($cod)
+    {
+        $sql = Studentsql::selectByCode();
+        $db = new GestorNotasDB();
+        $db->setIsSqlSelect(true);
+        $result = $db->execSQL(
+            $sql,
+            "i",
+            $cod
+        );
+        $student = null;
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $student = new Student();
+                $student->set('codigo', $row['codigo']);
+                $student->set('nombre', $row['nombre']);
+                $student->set('email', $row['email']);
+                $student->set('programaCode', $row['programa']);
+                break;
+            }
+        }
+        
+        return $student;
+    }
+    public function getByName($name)
+    {
+        $sql = Studentsql::selectByName();
+        $db = new GestorNotasDB();
+        $db->setIsSqlSelect(true);
+        $result = $db->execSQL(
+            $sql,
+            "s",
+            $name
+        );
+        $student = null;
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $student = new Student();
+                $student->set('codigo', $row['codigo']);
+                $student->set('nombre', $row['nombre']);
+                $student->set('email', $row['email']);
+                $student->set('programaCode', $row['programa']);
+                $codS = $student->get('codigo');
+                break;
+            }
+        }
+        
+        return $codS;
+    }
+    public function allByPrograma($programa_codigo)
+    {
+        $sql = StudentSQL::selectAllByPrograma();
+        $db = new GestorNotasDB(); 
+        $db->setIsSqlSelect(true);
+        $result = $db->execSQL(
+            $sql, 
+            "i",
+            $programa_codigo
+        ); 
+        $rows = [];
+        if ($result->num_rows > 0) {
+            while ($item = $result->fetch_assoc()) {
+                $student = new Student();
+                $student->set('codigo', $item['codigo']);
+                $student->set('nombre', $item['nombre']);
+                $student->set('email', $item['email']);
+                $student->set('programaCode', $item['programa']);
+                array_push($rows, $student);
+            }
+        }
+        return $rows;
+    }
+
 }
 ?>

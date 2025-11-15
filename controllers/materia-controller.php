@@ -29,7 +29,11 @@ class MateriaController
         $materia->set('cod', $data['codigoEli']);
         return $materia->delete();
     }
-
+    public function getAllMateriaPrograma($programa_codigo)
+    {
+        $materia = new Materia();
+        return $materia->allByPrograma($programa_codigo);
+    }
 
 }
 ?>

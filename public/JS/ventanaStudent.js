@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const modalCrear = document.getElementById("modal-programa");
+    const modalCrear = document.getElementById("modal-student");
     const abrirCrearBtn = document.querySelector(".name-create button");
     const cerrarCrearBtn = document.getElementById("cerrarModal");
     const cancelarCrearBtn = document.getElementById("cancelarModal");
@@ -27,9 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalEditar = document.getElementById("modal-editar");
     const cerrarEditarBtn = document.getElementById("cerrarEditar");
     const cancelarEditarBtn = document.getElementById("cancelarEditar");
-    const formEditar = document.getElementById("form-editar");
-    const inputEditar = document.getElementById("editarNombre");
-    const inputCodigoEditar = document.getElementById("codigoE");
+    const inputEditar = document.getElementById("nombreStudentE");
+    const inputCodigoEditar = document.getElementById("codigoStudentE");
 
 
     const editarBtns = document.querySelectorAll(".btn.edit");
@@ -54,7 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.addEventListener("click", () => modalEditar.style.display = "none");
     });
 
-
     
 
   
@@ -65,12 +63,12 @@ const divConfirmacion = document.getElementById('confirmacionEliminar');
 const btnCancelarEliminar = document.getElementById('cancelarEliminar');
 const btnContinuarEliminar = document.getElementById('continuarEliminar');
 
-const eliminarBtns = document.querySelectorAll(".btn.delete, .btn-eliminar-programa");
-const inputCodigoEli = document.getElementById("codigoProgramaEliminar");
+const eliminarBtns = document.querySelectorAll(".btn.delete, .btn-eliminar-student");
+const inputCodigoEli = document.getElementById("codigoStudentEli");
 
 eliminarBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    const fila = e.target.closest('tr');
+    const fila = e.target.closest("tr");
     const codigoActual = fila.children[0].innerText;
     inputCodigoEli.value = codigoActual;
     divConfirmacion.style.display = "flex";

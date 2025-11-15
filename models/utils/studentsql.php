@@ -14,11 +14,18 @@ class Studentsql{
     {
         return "select * from estudiantes where codigo=?";
     }
+    public static function selectByName()
+    {
+        return "select * from estudiantes where nombre=?";
+    }
     public static function update(){
         return "update estudiantes set nombre=?, email=?, programa=? where codigo=?";
     }
     public static function delete(){
-        return "delete form estudiantes where codigo=?";
+        return "delete from estudiantes where codigo=?";
+    }
+     public static function selectAllByPrograma(){
+        return "select * from estudiantes where programa = ?";
     }
 
 }

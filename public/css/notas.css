@@ -1,7 +1,6 @@
 .notas{
     background-color: rgb(158, 35, 35);
 }
-
 .notas p{
     color: white;
     margin: 0;
@@ -9,99 +8,236 @@
 .notas:hover{
     background-color: rgb(158, 35, 35);
 }
-.overlay-crear-nota, .overlay-editar-nota, .overlay-deletenota {
-    display: none; /* Inicialmente oculto */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+
+select{
+    display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1100; /* Por encima del header */
+    padding-block: 8px;
+    padding-inline: 12px;
+    border-width: 1px;
+    border-color: #e4e4e7;
+    border-radius: .625rem;
+    background-color: #f3f3f5;
+    width: 230px;
 }
 
-.overlay-content {
-    background-color: white;
-    border-radius: 16px;
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
     width: 100%;
-    max-width: 400px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-.overlay-header {
-    padding: 20px 24px;
-    border-bottom: 1px solid rgb(229, 231, 235);
-}
-
-.overlay-header h1 {
-    margin: 0;
-    font-size: 20px;
-    color: rgb(51, 51, 51);
-    font-weight: 600;
-}
-
-.overlay-crear-nota form, .overlay-editar-nota form , .overlay-deletenota form{
-    background-color: white;
-    padding: 24px;
-    border-radius: 16px;
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.info-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.info-form label {
-    font-weight: 500;
-    font-size: 14px;
-}
-
-.info-form input,
-.info-form select {
-    padding: 8px 12px;
-    border: 1px solid rgb(208, 212, 219);
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
     border-radius: 10px;
-    font-size: 14px;
+    width: 400px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    position: relative;
+    animation: fadeIn 0.3s ease;
 }
 
-.buttons-form {
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.modal-content label {
+    display: block;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.modal-buttons {
     display: flex;
     justify-content: flex-end;
-    gap: 16px;
+    gap: 10px;
 }
 
-.buttons-form button {
-    padding: 8px 16px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.buttons-form button:first-child {
-    background-color: white;
-    border: 1px solid rgb(158, 35, 35);
-    color: rgb(158, 35, 35);
-}
-
-.buttons-form button:last-child {
-    background-color: rgb(158, 35, 35);
+.modal-buttons button {
     border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#cancelarModal {
+    background-color: #e0e0e0;
+}
+
+#crearNotas {
+    background-color: rgb(158, 35, 35);
     color: white;
 }
 
-.buttons-form button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+#crearNotas:hover {
+    background-color: rgb(133, 30, 30);
+}
+
+.close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#actualizarNotas {
+    background-color: rgb(158, 35, 35);
+    color: white;
+}
+#actualizarNotas:hover {
+    background-color: rgb(133, 30, 30);
+}
+
+.confirmacion-eliminar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; 
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+
+.confirmacion-contenido {
+  background-color: #fff;
+  padding: 25px 35px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+  width: 350px;
+  max-width: 90%;
+  font-family: "Poppins", sans-serif;
+  animation: aparecer 0.25s ease;
+}
+
+.confirmacion-contenido h3 {
+  margin-bottom: 10px;
+  color: #222;
+  font-size: 20px;
+}
+
+.confirmacion-contenido p {
+  color: #555;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+.botones-confirmacion {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.btn-cancelar {
+  background-color: #ccc;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.btn-cancelar:hover {
+  background-color: #bbb;
+}
+
+.btn-continuar {
+  background-color: #e63946;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.btn-continuar:hover {
+  background-color: #c92836;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.svgFilter{
+    fill: rgb(158, 35, 35);
+    height: 25px;
+    width: 25px;
+}
+h2{
+    font-size: 14px;
+    font-weight: 500;
+}
+.filtro-container {
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid #eee;
+}
+.filtro-container label {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin: 0;
+}
+.filtro-container select {
+    padding: 8px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    flex-grow: 1;
+}
+.filtro-container button {
+    padding: 8px 18px;
+    font-size: 1em;
+    background-color: #e63946;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.filtro-container button:hover {
+    background-color: #c92836;
 }

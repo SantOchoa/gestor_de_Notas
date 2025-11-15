@@ -2,8 +2,8 @@
 
 namespace Models\Entities;
 
-require __DIR__ . '/../utils/user-sql.php';
-require __DIR__ . '/../database/gestor_notasdb.php';
+require_once __DIR__ . '/../utils/user-sql.php';
+require_once __DIR__ . '/../database/gestor_notasdb.php';
 
 use Models\Utils\UserSQL;
 use Model\DataBase\GestorNotasDB;
